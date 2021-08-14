@@ -1,0 +1,81 @@
+<div class="institute_details_back">
+   <div class="image_back">
+     <img src="assets/images/b1.jpg" alt="">
+   </div>
+   <div class="head d-flex">
+      <img src="assets/images/il1.png" alt="">
+      <h2>
+        {{ institute_detail.title }}<br>
+        <span>{{ institute_detail.city }}</span>
+      </h2>
+      <div class="widget d-flex align-items-center justify-content-between">
+        <span class="fa fa-thumbs-up"></span>
+        <span class="fa fa-heart"></span>
+        <span class="no">3</span>
+      </div>
+  </div>
+  <div class="list_details">
+    <small>Description</small>
+    <p>{{ institute_detail.description}}</p>
+  </div>
+  <div class="list_details">
+    <small>News Articles</small>
+    <p>N/A</p>
+  </div>
+</div>
+<div class="institute_details_back second">
+  <div class="list_details">
+    <small>Contact Numbers</small>
+    <p>{{ institute_detail.contact_number}}</p>
+  </div>
+  <div class="list_details">
+    <small>Email</small>
+    <p>{{ institute_detail.email}}</p>
+  </div>
+  <div class="list_details">
+    <small>Reviews</small>
+    <p>N/A</p>
+  </div>
+  <table>
+    <tbody>
+      <tr>
+        <td>Year of inception</td>
+        <td>{{institute_detail.year_of_inception }}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  <div class="list_details">
+    <small>Complate Address</small>
+    <p>{{institute_detail.city}}</p>
+  </div>
+  <div class="list_details">
+    <small>How to reach</small>
+    <p>{{institute_detail.how_to_reach}}</p>
+  </div>
+</div>
+<div class="buttons_back">
+  <ion-row>
+    <ion-col size="12">
+      <ion-button color="custom" fill="clear" [routerLink]="['/photo-gallery']">
+        Photo Gallery
+      </ion-button>
+  </ion-col>
+    <ion-col size="6">
+      <ion-button color="custom" fill="clear" [routerLink]="['/courses']">
+        Courses
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button color="custom" fill="clear" [routerLink]="['/']">
+        Download Brochure
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <div class="interested_back d-flex flex-column justify-content-center align-center">
+      <h4>Interested to get admission?</h4>
+      <ion-button color="custom" fill="clear" [routerLink]="['/institute-confirmation']">
+        Click Here
+      </ion-button>
+  </div>
+</div>

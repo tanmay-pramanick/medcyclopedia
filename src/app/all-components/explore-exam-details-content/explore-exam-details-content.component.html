@@ -1,0 +1,83 @@
+<div class="notification_back" *ngFor="let exam of allExams">
+  <h2>Explore Exams</h2>
+  <div class="card">
+    <p class="orange_text">{{ exam.title }}</p>
+    <div class="section">
+      <h6>Description</h6>
+      <p>{{ exam.description }}</p>
+    </div>
+    <div class="section">
+      <h6>Imp. Year</h6>
+      <p>{{ exam.important_date_last_year}}</p>
+    </div>
+    <div class="section">
+      <h6>Fee</h6>
+      <p>{{ exam.fees}}</p>
+    </div>
+    <ion-button color="custom" fill="clear" (click)="viewExam(exam.id)">
+      View
+    </ion-button>
+  </div>
+  <!-- <div class="card">
+    <p class="orange_text">NEET UG-(MBBS)National Eligiblity-cum-Entrance Test (Under Graduate Graduate) NEET-UG</p>
+    <div class="section">
+      <h6>Description</h6>
+      <p>Admissions to all seats of Undergraduate Medical Courses will be done through NEET</p>
+    </div>
+    <div class="section">
+      <h6>Imp. Year</h6>
+      <p>01, Aug 2021</p>
+    </div>
+    <div class="section">
+      <h6>Fee</h6>
+      <p>Rs. 800*/- (For SC/ST/PWD (PH)/ Transgender candidates)Rs. 1500*/- (For General/OBC candidates)</p>
+    </div>
+    <ion-button color="custom" fill="clear" [routerLink]="['/explore-exam-details-inner']">
+      View
+    </ion-button>
+  </div>
+  <div class="card">
+    <p class="orange_text">NEET UG-(MBBS)National Eligiblity-cum-Entrance Test (Under Graduate Graduate) NEET-UG</p>
+    <div class="section">
+      <h6>Description</h6>
+      <p>Admissions to all seats of Undergraduate Medical Courses will be done through NEET</p>
+    </div>
+    <div class="section">
+      <h6>Imp. Year</h6>
+      <p>01, Aug 2021</p>
+    </div>
+    <div class="section">
+      <h6>Fee</h6>
+      <p>Rs. 800*/- (For SC/ST/PWD (PH)/ Transgender candidates)Rs. 1500*/- (For General/OBC candidates)</p>
+    </div>
+    <ion-button color="custom" fill="clear" [routerLink]="['/explore-exam-details-inner']">
+      View
+    </ion-button>
+  </div>
+  <div class="card">
+    <p class="orange_text">NEET UG-(MBBS)National Eligiblity-cum-Entrance Test (Under Graduate Graduate) NEET-UG</p>
+    <div class="section">
+      <h6>Description</h6>
+      <p>Admissions to all seats of Undergraduate Medical Courses will be done through NEET</p>
+    </div>
+    <div class="section">
+      <h6>Imp. Year</h6>
+      <p>01, Aug 2021</p>
+    </div>
+    <div class="section">
+      <h6>Fee</h6>
+      <p>Rs. 800*/- (For SC/ST/PWD (PH)/ Transgender candidates)Rs. 1500*/- (For General/OBC candidates)</p>
+    </div>
+    <ion-button color="custom" fill="clear" [routerLink]="['/explore-exam-details-inner']">
+      View
+    </ion-button>
+  </div> -->
+</div>
+
+
+<div class="details d-flex align-center flex-column">
+  <p>For Expert Counselling</p>
+  <ion-button color="custom" fill="clear" [routerLink]="['/expert-counselling']">
+    Click Here
+  </ion-button>
+</div>

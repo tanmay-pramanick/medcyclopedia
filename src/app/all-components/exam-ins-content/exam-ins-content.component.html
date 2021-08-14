@@ -1,0 +1,51 @@
+<div (click)="getId($event.target.value)">
+  <ul class="service_list_back" *ngFor="let courses of allCourses">
+    <li class="d-flex align-center" [value]="courses.id">
+      <img src="assets/images/{{ courses.course_name }}.png" alt="">
+      {{ courses.course_name }}
+    </li>
+    <!-- <li class="d-flex align-center" [routerLink]="['/find-institutions-form']">
+      <img src="assets/images/cat2.png" alt="">
+      BDS
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/find-institutions-form']">
+      <img src="assets/images/cat3.png" alt="">
+      MD/MS/DIPLOMA
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/find-institutions-form']">
+      <img src="assets/images/cat4.png" alt="">
+      MDS
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/find-institutions-form']">
+      <img src="assets/images/cat5.png" alt="">
+      BAMS
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/find-institutions-form']">
+      <img src="assets/images/cat6.png" alt="">
+      BHMS
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/find-institutions-form']">
+      <img src="assets/images/cat7.png" alt="">
+      MD AYURVEDA
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/find-institutions-form']">
+      <img src="assets/images/cat8.png" alt="">
+      MD HOMEOPATHY
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/find-institutions-form']">
+      <img src="assets/images/cat9.png" alt="">
+      PHARMACY
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/find-institutions-form']">
+      <img src="assets/images/cat10.png" alt="">
+      NURSING
+    </li> -->
+  </ul>
+</div>
+
+<div class="details d-flex align-center flex-column">
+  <p>For Expert Counselling</p>
+  <ion-button color="custom" fill="clear" [routerLink]="['/expert-counselling']">
+    Click Here
+  </ion-button>
+</div>

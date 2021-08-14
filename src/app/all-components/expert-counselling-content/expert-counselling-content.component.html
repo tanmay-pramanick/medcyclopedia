@@ -1,0 +1,125 @@
+<div class="notification_back">
+  <div class="card">
+    <h2>Expert Counselling</h2>
+    <div class="section">
+      <h3>heading</h3>
+      <h3>heading</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit rerum corrupti hic, explicabo quod id
+        modi, nostrum accusamus, delectus incidunt facere. Alias doloremque cupiditate illum. Fugiat, fuga eum! Veniam,
+        officiis!<br><br>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas repudiandae eius quaerat,
+        culpa, amet rerum quos voluptatibus ullam veritatis rem accusamus labore molestias adipisci ducimus? Quibusdam
+        facilis placeat autem nulla!<br><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit obcaecati at
+        maxime corporis fugiat optio aliquam similique reprehenderit eius sint. Natus perferendis hic quae vel
+        cupiditate. Enim repudiandae ad quo?</p>
+      <h3>heading</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem corporis laboriosam veritatis. Maxime ipsum
+        officia mollitia officiis tempore quibusdam accusantium rem illo? Modi, voluptas? Ullam corporis nobis nemo
+        facere illo!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas eligendi voluptas quidem beatae
+        laborum sequi officia totam, sunt suscipit nesciunt. Inventore, possimus ipsum? Vel blanditiis soluta
+        reprehenderit pariatur, sed eaque!
+      </p>
+    </div>
+
+  </div>
+  <div class="counselling_form_back">
+    <h2>Counselling<br><span>by our expert!</span></h2>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <p>Preferred Date</p>
+        </ion-col>
+        <ion-col size="8">
+          <ion-datetime placeholder="Jul 28, 2021" displayFormat="MMM DD, YYYY" [(ngModel)]="date" name="date"
+          [min]="min_date"></ion-datetime>
+        </ion-col>
+        <ion-col size="4">
+          <p>Preferred Timing</p>
+        </ion-col>
+        <ion-col size="8">
+          <div class="radio_back d-flex" (change)="getPrefTiming($event.target.value)">
+            <div class="port d-flex align-center">
+              <input type="radio" name="ptiming" id="morning" value="morning" [disabled]="disable_time">
+              <label for="morning" class=" d-flex align-center">
+                <span></span>
+                10am-1pm
+              </label>
+            </div>
+            <div class="port d-flex align-center">
+              <input type="radio" name="ptiming" id="afternoon" value="afternoon" [disabled]="disable_time">
+              <label for="afternoon" class=" d-flex align-center">
+                <span></span>
+                1pm-5pm
+              </label>
+            </div>
+            <div class="port d-flex align-center">
+              <input type="radio" name="ptiming" id="evening" value="evening" [disabled]="disable_time">
+              <label for="evening" class=" d-flex align-center">
+                <span></span>
+                5pm-8pm
+              </label>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <p>Preferred Mode</p>
+        </ion-col>
+        <ion-col size="8">
+          <div class="radio_back msg d-flex align-center" (change)="getPreferredMode($event.target.value)">
+            <div class="port d-flex align-center">
+              <input type="radio" name="mode" id="msg1" value="Video">
+              <label for="msg1" class=" d-flex align-center">
+                <span></span>
+                <img src="assets/images/msg.png" alt="">
+              </label>
+            </div>
+            <div class="port d-flex align-center">
+              <input type="radio" name="mode" id="msg2" value="Whatsapp">
+              <label for="msg2" class=" d-flex align-center">
+                <span></span>
+                <img src="assets/images/msg2.png" alt="">
+              </label>
+            </div>
+            <div class="port d-flex align-center">
+              <input type="radio" name="mode" id="msg3" value="Phone Call">
+              <label for="msg3" class=" d-flex align-center">
+                <span></span>
+                <img src="assets/images/msg3.png" alt="">
+              </label>
+            </div>
+          </div>
+        </ion-col>
+        
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <p>Preferred Languages</p>
+        </ion-col>
+        <ion-col size="8">
+          <div class="radio_back d-flex" (change)="getPreferredLanguages($event.target.value)">
+            <div class="port d-flex align-center">
+              <input type="radio" name="radio" id="english" value="English">
+              <label for="english" class=" d-flex align-center">
+                <span></span>
+                English
+              </label>
+            </div>
+            <div class="port d-flex align-center">
+              <input type="radio" name="radio" id="hindi" value="Hindi">
+              <label for="hindi" class=" d-flex align-center">
+                <span></span>
+                Hindi
+              </label>
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+    <ion-button type="button" color="custom" fill="clear" (click)="registerNow()">
+      register Now
+    </ion-button>
+  </div>
+</div>

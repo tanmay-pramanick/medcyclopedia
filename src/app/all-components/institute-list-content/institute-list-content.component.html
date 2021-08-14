@@ -1,0 +1,43 @@
+<div class="institute_list">
+  <div class="title_back">
+    <p>Please select 2 Institute from list to compare</p>
+  </div>
+
+
+
+  <div class="institute_list_back" *ngFor="let institute of all_institutes">
+    <div class="portion">
+      <div class="head d-flex align-center">
+        <img src="assets/images/il1.png" alt="">
+        {{ institute.title}}
+      </div>
+      <div class="list_details">
+        <small>Description</small>
+        <p>{{ institute.description }}</p>
+      </div>
+      <div class="list_footer d-flex align-center justify-content-between">
+        <div class="check_back">
+          <input type="checkbox" name="" id="compare">
+          <label for="compare">
+            <span></span>
+            Add to compare
+          </label>
+        </div>
+        <div>
+          <ion-button type="button" color="custom" fill="clear" (click)="viewMore(institute.id)">
+            View Details
+          </ion-button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="details d-flex align-center flex-column">
+    <p>For Expert Counselling</p>
+    <ion-button color="custom" fill="clear" [routerLink]="['/expert-counselling']">
+      Click Here
+    </ion-button>
+  </div>
+</div>

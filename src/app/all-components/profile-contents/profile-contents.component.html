@@ -1,0 +1,106 @@
+<div class="profile_back d-flex align-center justify-between">
+  <div class="left">
+    <h2>profile details</h2>
+    <div class="form_back">
+      <div class="portion">
+        <p>First Name</p>
+        <input type="text" value="Rahul" [disabled]="notEditMode" [(ngModel)]="f_name" name="f_name" id="f_name">
+      </div>
+      <div class="portion">
+        <p>Last Name</p>
+        <input type="text" value="Yadav" [disabled]="notEditMode" [(ngModel)]="l_name" name="l_name" id="l_name">
+      </div>
+      <div class="portion">
+        <p>Mobile Number</p>
+        <input type="text" value="8697627800" [disabled]="notEditMode" [(ngModel)]="mobile" name="mobile" id="mobile">
+      </div>
+      
+    </div>
+  </div>
+  <div class="right">
+    <div class="profile_pic"><img src="assets/images/profile_pic.png" alt=""></div>
+    <ion-button color="custom" fill="clear" (click)="openLink()">
+      Upload photo
+    </ion-button>
+  </div>
+</div>
+<div class="profile_back d-flex align-center justify-between">
+  <div class="left">
+    <h2>profile basic details</h2>
+    <div class="form_back">
+      <div class="portion">
+        <p>Home State</p>
+        <ion-select placeholder="" [disabled]="notEditMode" [(ngModel)]="homestate">
+          <ion-select value="Andaman & Nicobar Island" okText="Okay" cancelText="Dismiss">
+            <ion-select-option *ngFor="let state of all_states" name="homestate" value="{{ state.state_name }}">{{ state.state_name }}</ion-select-option>
+            <!-- <ion-select-option value="Assam">Assam</ion-select-option>
+            <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
+            <ion-select-option value="Bihar">Bihar</ion-select-option> -->
+          </ion-select>
+        </ion-select>
+      </div>
+      <div class="portion">
+        <p>Gender</p>
+        <ion-select placeholder="" [disabled]="notEditMode" [(ngModel)]="gender">
+          <ion-select value="-- Select Gender --" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="-- Select Gender --">-- Select Gender --</ion-select-option>
+            <ion-select-option value="Male">Male</ion-select-option>
+            <ion-select-option value="Female">Female</ion-select-option>
+          </ion-select>
+        </ion-select>
+      </div>
+      <div class="portion">
+        <p>Cast</p>
+        <ion-select placeholder="" [disabled]="notEditMode" [(ngModel)]="cast">
+          <ion-select value="-- Select Cast --" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="-- Select Caste --">-- Select Cast --</ion-select-option>
+            <ion-select-option value="General">General</ion-select-option>
+            <ion-select-option value="OBC">OBC</ion-select-option>
+            <ion-select-option value="SC">SC</ion-select-option>
+            <ion-select-option value="ST">ST</ion-select-option>
+          </ion-select>
+        </ion-select>
+      </div>
+      <div class="portion">
+        <p>City</p>
+        <input type="text" class="text_box" placeholder="City" name="city" id="city" [disabled]="notEditMode" [(ngModel)]="city">
+      </div>
+      <div class="portion">
+        <p>Physically Challenged</p>
+        <ion-select placeholder="" [disabled]="notEditMode" [(ngModel)]="physical_status">
+          <ion-select value="-- Select --" okText="Okay" cancelText="Dismiss">
+            <ion-select-option value="-- Select --">-- Select --</ion-select-option>
+            <ion-select-option value="Yes">Yes</ion-select-option>
+            <ion-select-option value="No">No</ion-select-option>
+          </ion-select>
+        </ion-select>
+      </div>
+      <div class="portion">
+        <p>Email</p>
+        <input type="text" class="text_box" placeholder="Email" name="email" id="email" [disabled]="notEditMode" [(ngModel)]="email">
+      </div>
+      <div class="portion">
+        <p>NEET Score</p>
+        <input type="text" class="text_box" placeholder="Score" name="neet" id="neet" [disabled]="notEditMode" [(ngModel)]="neet">
+      </div>
+      
+      
+    </div>
+  </div>
+</div>
+
+<div class="profile_back d-flex align-center justify-between">
+  <div class="portion" *ngIf="edit_pro" >
+    <ion-button color="custom" class="form_button color2" fill="clear" (click)="editProButton()"  [disabled]="!notEditMode">
+      Edit
+    </ion-button>
+  </div>
+  <div class="portion d-flex" *ngIf="save_pro" (click)="save()">
+    <ion-button color="custom" class="form_button" fill="clear">
+      Save
+    </ion-button>
+    <ion-button color="custom" class="form_button color2" fill="clear" (click)="cancleProButton()">
+      Cancel
+    </ion-button>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+.entry_point_details_back{
+    width: 100%; padding-top: 5rem; 
+    .head{
+        width: 100%; text-align: center;
+        img{
+            height: 10rem;
+        }
+        
+    }
+}
+
+.slide_options{
+    width: 100%; height: 100vh; position: fixed; top: 0; left: 0; padding-top: 28rem;
+    h3, h2{
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 2rem; 
+    }
+    h2{
+        color: #e85c23; font-weight: 700; margin-top: 5px;
+    }
+    h6{
+        font-size: 1.3rem; color: #343434; margin: 0;
+    }
+    
+    
+}
+
+.buttons_for_auth{
+    position: absolute; bottom: 39%; left: 0; width: 100%; text-align: center;
+}
+
+
+
+.swiper-slide{
+    height: 100vh;
+    align-items: flex-start;
+}
+
+.port{
+    margin-bottom: 1rem;
+}
+
+.ion-color-custom{
+    height: 3rem; margin-top: 1rem;
+}
+

@@ -1,0 +1,55 @@
+<div class="abroad_back">
+  <h2>Popular countries to study MBBS Abroad</h2>
+
+  <div (click)="getCountry($event.target.value)">
+    <ul class="service_list_back" *ngFor="let countries of allCountries">
+      <li class="d-flex align-center" [value]="countries.id">
+        <img src="assets/images/{{ countries.name }}.png" alt="">
+        {{ countries.name }}
+      </li>
+      <!-- <li class="d-flex align-center" [routerLink]="['/country-info']">
+      <img src="assets/images/cat2.png" alt="">
+      bangladesh
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/country-info']">
+      <img src="assets/images/cat3.png" alt="">
+      philippines
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/country-info']">
+      <img src="assets/images/cat4.png" alt="">
+      china
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/country-info']">
+      <img src="assets/images/cat5.png" alt="">
+      USA 
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/country-info']">
+      <img src="assets/images/cat6.png" alt="">
+      rusia
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/country-info']">
+      <img src="assets/images/cat7.png" alt="">
+      ukraine
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/country-info']">
+      <img src="assets/images/cat8.png" alt="">
+      poland
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/country-info']">
+      <img src="assets/images/cat9.png" alt="">
+      guyana
+    </li>
+    <li class="d-flex align-center" [routerLink]="['/country-info']">
+      <img src="assets/images/cat10.png" alt="">
+      georgia
+    </li> -->
+    </ul>
+  </div>
+</div>
+
+<div class="details d-flex align-center flex-column">
+  <p>For Expert Counselling</p>
+  <ion-button color="custom" fill="clear">
+    Click Here
+  </ion-button>
+</div>

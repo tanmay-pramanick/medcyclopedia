@@ -1,0 +1,20 @@
+.my_institutions_back{
+    width: 100%;
+    .title_back{
+        width: 100%; height: 8rem; background-color: #fff; box-shadow: rgba(0,0,0,.2) 1px 0 1rem; padding-left: 2rem;  border-radius: 1rem;
+        h2{
+            color: #e85b23;  font-size: 1.6rem; text-transform: capitalize; margin: 0; padding: 0;
+        }
+    }
+    .details{
+        width: 100%; padding-top: 4rem;
+        p{
+            color: #e85b23; font-size: 1.6rem; margin: 0 0 1.5rem 0; padding: 0;
+        }
+    }
+    .ion-color-custom{
+        width: 14rem; height: 4rem; background-color: #0c4d9d; border-radius: 12px; color: #fff; text-transform: capitalize; margin-top: 1.4rem; 
+        box-shadow: rgba(0,0,0,.2) 1px 0 10px;
+        
+    }
+}

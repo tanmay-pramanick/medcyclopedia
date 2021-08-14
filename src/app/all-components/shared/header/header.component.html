@@ -1,0 +1,43 @@
+<ng-container 
+*ngIf="router.url === '/home' ||  
+router.url === '/my-institutions' ||
+router.url === '/my-activity' ||
+router.url === '/my-alerts'||
+router.url === '/profile' ||
+router.url === '/refer-earn';then mainheader; else blankheader">
+</ng-container>
+<ng-template #blankheader></ng-template> 
+<ng-template #mainheader>
+  <ion-header>
+    <div class="top d-flex align-center justify-between">
+      <div class="avator_section d-flex align-center">
+        <img src="assets/images/pro_avator.png" alt="">
+        <span>Welcome {{ firstname }}</span>      
+      </div>
+      <div class="right_icon_details d-flex align-center">
+          <div class="search" [routerLink]="['/search']"><img src="assets/images/search.png" alt=""></div>
+          <div class="list" (click)="menuopen()"><img src="assets/images/list.png" alt=""></div>
+      </div>
+      <ul class="menu" [class.open]="menu">
+        <li class="d-flex align-center" (click)="menuclose()" [routerLink]="['/aboutus']">About Infinity</li>
+        <li class="d-flex align-center" (click)="menuclose()" [routerLink]="['/news-events']" >News and Events</li>
+        <li class="d-flex align-center" (click)="menuclose()" [routerLink]="['/media']">Media</li>
+        <li class="d-flex align-center" (click)="menuclose()" [routerLink]="['/terms']">T & C</li>
+        <li class="d-flex align-center" (click)="logout()"><img src="assets/images/logout.png" alt="">Logout</li>
+      </ul>
+    </div>
+    <ul class="home_tab_back d-flex">
+      <li class="d-flex flex-column" [routerLink]="['/profile']">
+        <img src="assets/images/profile.png" alt="">
+        Profile
+      </li>
+      <li class="d-flex flex-column" [routerLink]="['/refer-earn']">
+        <img src="assets/images/profile2.png" alt="">
+        refer & Earn
+      </li>
+    </ul>
+  </ion-header>
+  <app-banner></app-banner>
+</ng-template>
+
+

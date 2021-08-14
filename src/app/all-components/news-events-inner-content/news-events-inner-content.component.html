@@ -1,0 +1,10 @@
+<div class="news_event_content">
+  <img src="assets/images/n1.jpg" alt="">
+  <h2>{{ news_event.title}}</h2>
+  <div class="portion">
+    <h6>Venue | Date | Time</h6>
+    <p>{{news_event.venue}} | {{news_event.date}} | {{news_event.time}}</p>
+    <h6>Event Details</h6>
+    <p (click)="view(news_event.description)">CLICK HERE TO VIEW</p>
+  </div>
+</div>

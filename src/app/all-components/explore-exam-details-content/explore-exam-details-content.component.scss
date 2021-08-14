@@ -1,0 +1,31 @@
+.notification_back{
+    width: 100%; height: auto; 
+        h2{
+            color: #e85b23;  font-size: 1.6rem; text-transform: capitalize; margin: 0 0 1.4rem 0; padding: 0;
+        }
+}
+
+
+.ion-color-custom{
+    width: 14rem; height: 4rem; background-color: #0c4d9d; border-radius: 12px; color: #fff; text-transform: capitalize; margin-top: 5px; 
+    box-shadow: rgba(0,0,0,.2) 1px 0 10px;
+    
+}
+
+.card{
+    width: 100%; padding: 1rem; box-shadow: rgba(0,0,0,.2) 1px 0 1rem; float: left; margin-bottom: 1.2rem;
+    p{
+        font-size: 1.4rem; margin: 0 0 1rem 0; padding: 0;  color: #343434;
+        &.orange_text{
+            color: #e85b23; font-weight: 700;
+        }
+    }
+    h6{
+        color: #95969a;
+        font-size: 1.2rem;
+    }
+    .ion-color-custom{
+        width: 10rem; height: 4rem; float: right;
+    }
+}
+

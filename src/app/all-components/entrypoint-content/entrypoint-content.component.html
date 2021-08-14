@@ -1,0 +1,51 @@
+<div class="entry_point_details_back">
+  <div class="head">
+    <img src="assets/images/site_logo.png" alt="">
+    
+  <div class="slide_options" >
+    <ion-slides pager="true" [options]="slideOpts" #mySlider>
+      <ion-slide>
+        <div> 
+          <h3>Excludive</h3>
+          <h2>INFORMATION</h2>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div>
+          <h3>Expert</h3>
+          <h2>COUNSELLING</h2>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div>
+          <h3>Confirm</h3>
+          <h2>Admission!</h2>
+        </div>
+      </ion-slide>
+      <ion-slide>
+        <div>
+          <h3>RIGHT COURSE!<br>RIGHT INSTITUTION!</h3>
+          <h2>Let 'Medcyclopedia'<br>be your navigator!</h2>
+
+          <div class="buttons_for_auth">
+            <div class="port">
+              <h6>First time here?</h6>
+              <ion-button color="custom" class="ion-color-custom2" fill="clear"[routerLink]="['/signup-first-step']">
+                Sign Up
+              </ion-button>
+            </div>
+            <div class="port">
+              <h6>Existing user?</h6>
+              <ion-button color="custom" fill="clear"[routerLink]="['/signin']">
+                Login
+              </ion-button>
+            </div>
+          </div>
+
+        </div>
+      </ion-slide>
+    </ion-slides>
+    
+  </div>
+  
+</div>

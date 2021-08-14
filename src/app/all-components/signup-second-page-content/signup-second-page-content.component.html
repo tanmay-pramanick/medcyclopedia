@@ -1,0 +1,34 @@
+<div class="site_form_baCK">
+  <div class="head">
+    <img src="assets/images/site_logo.png" alt="">
+    <h2>signup</h2>
+    <h3>Step 1/2</h3>
+  </div>
+  <div class="form_baCK">
+    <form [formGroup]="otpForm" (ngSubmit)="register()">
+      <div class="port">
+        <p>Mobile</p>
+        <input type="text" formControlName="mobile" id="mobile" readonly>
+      </div>
+      <div class="port">
+        <p>Mobile OTP</p>
+        <div class="otp">
+          <input type="text" formControlName="place1" id="place1" maxlength="1">
+          <input type="text" formControlName="place2" id="place2" maxlength="1">
+          <input type="text" formControlName="place3" id="place3" maxlength="1">
+          <input type="text" formControlName="place4" id="place4" maxlength="1">
+          <input type="text" formControlName="place5" id="place5" maxlength="1">
+          <input type="text" formControlName="place6" id="place6" maxlength="1">
+        </div>
+        
+      </div>
+      
+      <ion-button type="submit" color="custom" fill="clear" [disabled]="!otpForm.valid">
+        Submit
+      </ion-button>
+    </form>
+  </div>
+  <div class="foot">
+    <h5 [routerLink]="['/signin']">Exiting user?</h5>
+  </div>
+</div>

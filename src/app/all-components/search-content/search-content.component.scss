@@ -1,0 +1,17 @@
+.search_back{
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    input[type="text"]{
+        max-width: 70%; flex: 0 0 70%; background-color: #fff; padding: 0 5px; height: 4rem; border-radius: 5px; outline-style: none; border: none;
+        &::placeholder{
+            color: rgba(0,0,0,.5);
+        }
+    }
+    input[type="submit"]{
+        max-width: 28%; flex: 0 0 70%;     height: 4rem;
+        background-color: #0c4d9d;
+        border-radius: 5px;
+        color: #fff;
+        text-transform: capitalize;
+        box-shadow: rgb(0 0 0 / 20%) 1px 0 10px; display: flex; align-items: center; justify-content: center; outline-style: none; border: none;
+    }
+}

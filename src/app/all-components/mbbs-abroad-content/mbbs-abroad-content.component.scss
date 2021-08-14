@@ -1,0 +1,28 @@
+.abroad_back{
+    width: 100%; height: auto; background-color: #fff; box-shadow: rgba(0,0,0,.2) 1px 0 1rem; padding: 2rem;  border-radius: 1rem;
+        h2{
+            color: #e85b23;  font-size: 1.6rem; text-transform: capitalize; margin: 0 0 1.4rem 0; padding: 0;
+        }
+}
+
+.service_list_back{
+    width: 100%;
+    li{
+        width: 100%; box-shadow: rgba(0,0,0,.2) 1px 0 1rem; border-radius: 6px; color: #343434; font-size: 1.5rem; text-transform: capitalize; padding: 1rem; margin-bottom: 1.5rem; font-weight: 500;
+        img{
+            height: 3rem; width: 3rem; margin-right: 1.4rem; border-radius: 100%;
+        }
+    }
+}
+
+.details{
+    width: 100%; padding-top: 3rem;
+    p{
+        color: #e85b23; font-size: 1.6rem; margin: 0 0 1rem 0; padding: 0;
+    }
+}
+.ion-color-custom{
+    width: 14rem; height: 4rem; background-color: #0c4d9d; border-radius: 12px; color: #fff; text-transform: capitalize; margin-top: 1.4rem; 
+    box-shadow: rgba(0,0,0,.2) 1px 0 10px;
+    
+}

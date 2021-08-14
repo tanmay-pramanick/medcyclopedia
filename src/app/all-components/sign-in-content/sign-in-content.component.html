@@ -1,0 +1,44 @@
+<div class="site_form_baCK">
+  <div class="head">
+    <img src="assets/images/site_logo.png" alt="">
+    <h2>login</h2>
+  </div>
+  <div class="form_baCK">
+    <h6>Login with</h6>
+    <form [formGroup]="signinForm" (ngSubmit)="signin()">
+      <div class="port">
+        <p>Mobile Number</p>
+        <input type="text" formControlName="mobile" id="mobile" required>
+      </div>
+      <div *ngIf="errorControl.mobile.touched && errorControl.mobile.invalid">
+        <span style="color: red;" *ngIf="errorControl.mobile.errors.pattern">
+          Mobile is not in proper format.
+        </span>
+        <span style="color: red;" *ngIf="errorControl.mobile.errors.required">
+          Mobile is required.
+        </span>
+      </div>
+
+
+
+      <div class="port">
+        <p>Password</p>
+        <input type="password" formControlName="password" id="password" required>
+      </div>
+
+      <div *ngIf="errorControl.password.touched && errorControl.password.invalid">
+        <span style="color: red;" *ngIf="errorControl.password.errors.required">
+          Password is required.
+        </span>
+      </div>
+      <ion-button type="submit" color="custom" fill="clear" [disabled]="!signinForm.valid">
+        Submit
+      </ion-button>
+    </form>
+  </div>
+  <div class="foot">
+    <h5 [routerLink]="['/signup-first-step']">First time here?</h5>
+    <h6>Forgot Password? Retrive <span [routerLink]="['/otp']">Here!</span></h6>
+    <h3 [routerLink]="['/before-login-aboutus']">about us</h3>
+  </div>
+</div>

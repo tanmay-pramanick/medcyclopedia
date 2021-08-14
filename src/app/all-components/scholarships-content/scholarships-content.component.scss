@@ -1,0 +1,21 @@
+.card{
+    width: 100%; height: auto; padding: 1rem; box-shadow: rgba(0,0,0,.2) 1px 0 1rem; border-radius: 5px; margin-bottom: 2rem; background-color: #fff;
+    .area{
+        display: flex; align-items: center;
+        img{
+            height: 7rem; margin-right: 1rem;
+        }
+        h2{
+            color: #343434; font-size: 1.6rem; font-weight: 700;
+        }
+    }
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+.button{
+    width: 100%; display: flex; justify-content: flex-end;
+}
+.ion-color-custom{
+    width: 8rem; 
+}

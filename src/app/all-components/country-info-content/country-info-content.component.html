@@ -1,0 +1,46 @@
+<div class="notification_back">
+  <h2>Country information</h2>
+  <div class="card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          Name
+        </ion-col>
+        <ion-col size="6" class="title">
+          {{ country?.name }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          Code
+        </ion-col>
+        <ion-col size="6" class="title">
+          {{ country?.code }}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="6">
+          Country
+        </ion-col>
+        <ion-col size="6" class="title">
+          {{ country?.currency }}
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+    <div class="section">
+      <h6>Medical Education</h6>
+      <p>{{ country?.medicaleducation }}</p>
+    </div>
+    <div class="section">
+      <h6>About</h6>
+      <p>{{ country?.about }}</p>
+    </div>
+    
+    <ion-button type="button" color="custom" fill="clear" (click)="continue(country.id)">
+      continue..
+    </ion-button>
+    
+  </div>
+ 
+ 
+ 

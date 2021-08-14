@@ -1,0 +1,21 @@
+.courses_details{
+    width: 100%; 
+    background-color: #fff; 
+    box-shadow: rgba(0,0,0,.1) 1px 0 1rem; 
+    padding-left: 2rem;  
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    table{
+        width: 100%;
+        max-width: 100%;
+        td{
+            max-width: 30%; color: rgba(0,0,0,.5); font-size: 13px; width: 100%; padding: 8px 0; vertical-align: top;
+            &:last-child{
+                max-width: 60%; color: #343434;
+                font-size: 1.4rem; 
+            }
+        }
+        
+    }
+}
