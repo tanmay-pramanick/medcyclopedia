@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { LoaderService } from 'src/app/all-services/loader.service';
 import { SigninService } from 'src/app/all-services/signin.service';
 
 @Component({
@@ -14,12 +15,15 @@ export class SignInContentComponent implements OnInit {
   signinForm: FormGroup;
   token_data: any;
   access_token: string;
+
+  user : any =[];
   
 
   constructor(private fb: FormBuilder,
     private router: Router,
     private signinuser: SigninService,
-    public toastController: ToastController) { }
+    public toastController: ToastController,
+    private loaderservice : LoaderService) { }
 
   ngOnInit() {
 
@@ -29,6 +33,26 @@ export class SignInContentComponent implements OnInit {
       mobile: ['', [Validators.required, Validators.pattern("[0-9]{10}")]],
       password: ['', Validators.required]
     });
+
+    this.user = this.signinuser.getCurrentUser();
+
+    if (this.user) {
+
+      
+      this.user.subscribe(user => {
+        if (user) {
+          console.log("User s this ")
+          console.log(user);
+          this.access_token = user.access_token;
+          this.router.navigate(['/home']);
+          
+        }
+        else {
+          console.log("empty user", user);
+         
+        }
+      });
+    }
 
   }
 
