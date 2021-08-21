@@ -8,7 +8,7 @@
   <div class="institute_list_back" *ngFor="let institute of all_institutes">
     <div class="portion">
       <div class="head d-flex align-center">
-        <img src="assets/images/il1.png" alt="">
+        <img src="{{uploadsUrl}}/{{ institute.logo }}" alt="">
         {{ institute.title}}
       </div>
       <div class="list_details">

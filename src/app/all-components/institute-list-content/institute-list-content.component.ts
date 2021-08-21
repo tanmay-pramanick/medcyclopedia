@@ -3,6 +3,8 @@ import { Location } from '@angular/common';
 import { FindinstitutesService } from 'src/app/all-services/findinstitutes.service';
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/all-services/loader.service';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-institute-list-content',
@@ -12,21 +14,25 @@ import { LoaderService } from 'src/app/all-services/loader.service';
 export class InstituteListContentComponent implements OnInit {
 
   state_id: string;
-  course_id : string;
-  ownership_type : string;
-  country_id : string;
-  loc : any;
-  all_institutes : any;
+  course_id: string;
+  ownership_type: string;
+  country_id: string;
+  loc: any;
+  all_institutes: any;
   // institute_id: string;
+  uploadsUrl: any;
 
-  constructor(private location:Location,
-              private findinsttitutesservice: FindinstitutesService,
-              private loaderservice : LoaderService,
-              private router : Router) { }
+  constructor(private location: Location,
+    private findinsttitutesservice: FindinstitutesService,
+    private loaderservice: LoaderService,
+    private router: Router) {
+
+    this.uploadsUrl = environment.uploadsUrl;
+  }
 
   ngOnInit() {
 
-    
+
     this.loc = this.location.getState();
     console.log(this.location.getState());
 
@@ -34,13 +40,13 @@ export class InstituteListContentComponent implements OnInit {
 
     this.country_id = this.loc.country_id;
 
-    if(this.country_id === undefined){
-     
+    if (this.country_id === undefined) {
+
       this.state_id = this.loc.state_id;
       this.course_id = this.loc.course_id;
-      this.ownership_type=this.loc.ownership_type;
-      
-      this.findinsttitutesservice.findInstitutes(this.state_id, this.course_id, this.ownership_type).subscribe((res) =>{
+      this.ownership_type = this.loc.ownership_type;
+
+      this.findinsttitutesservice.findInstitutes(this.state_id, this.course_id, this.ownership_type).subscribe((res) => {
         console.log(res);
         this.loaderservice.hideLoading();
 
@@ -49,9 +55,9 @@ export class InstituteListContentComponent implements OnInit {
     }
     else {
 
-      
 
-      this.findinsttitutesservice.findInstituteCountryWise(this.country_id).subscribe(res =>{
+
+      this.findinsttitutesservice.findInstituteCountryWise(this.country_id).subscribe(res => {
         console.log(res);
         this.loaderservice.hideLoading();
 
@@ -60,15 +66,15 @@ export class InstituteListContentComponent implements OnInit {
 
     }
 
-    
+
 
 
   }
 
-  viewMore(institute_id: string){
+  viewMore(institute_id: string) {
     // console.log(event.target)
     console.log(institute_id);
-    this.router.navigate(['/institute-list-details'], {state : {institute_id :institute_id}});
+    this.router.navigate(['/institute-list-details'], { state: { institute_id: institute_id } });
   }
 
 

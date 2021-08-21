@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'https://med.scriptcrown.com/api',
+  uploadsUrl: 'https://med.scriptcrown.com/uploads',
   banner_path: 'assets/images/'
 };
 
