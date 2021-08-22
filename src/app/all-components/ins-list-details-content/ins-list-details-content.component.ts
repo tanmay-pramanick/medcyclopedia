@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FindinstitutesService } from 'src/app/all-services/findinstitutes.service';
 import { LoaderService } from 'src/app/all-services/loader.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -11,13 +12,17 @@ import { LoaderService } from 'src/app/all-services/loader.service';
 })
 export class InsListDetailsContentComponent implements OnInit {
 
-  institute_id : string;
-  loc : any;
-  institute_detail : any = [];
+  institute_id: string;
+  loc: any;
+  institute_detail: any = [];
+  uploadsUrl : any;
 
-  constructor(private location:Location,
-              private findinstitute : FindinstitutesService,
-              private loaderservice : LoaderService) { }
+  constructor(private location: Location,
+    private findinstitute: FindinstitutesService,
+    private loaderservice: LoaderService) {
+    this.uploadsUrl = environment.uploadsUrl;
+
+  }
 
   ngOnInit() {
 
@@ -27,7 +32,7 @@ export class InsListDetailsContentComponent implements OnInit {
 
     this.institute_id = this.loc.institute_id;
 
-    this.findinstitute.findInstituteById(this.institute_id).subscribe(res =>{
+    this.findinstitute.findInstituteById(this.institute_id).subscribe(res => {
       console.log(res);
       this.loaderservice.hideLoading();
       this.institute_detail = res;

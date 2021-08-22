@@ -1,9 +1,9 @@
 <div class="institute_details_back">
    <div class="image_back">
-     <img src="assets/images/b1.jpg" alt="">
+     <img src="{{uploadsUrl}}/{{institute_detail.cover}}" onerror="this.src = 'assets/images/no-image.png';">
    </div>
    <div class="head d-flex">
-      <img src="assets/images/il1.png" alt="">
+      <img src="{{uploadsUrl}}/{{institute_detail.logo}}" onerror="this.src = 'assets/images/no-image.png';">
       <h2>
         {{ institute_detail.title }}<br>
         <span>{{ institute_detail.city }}</span>

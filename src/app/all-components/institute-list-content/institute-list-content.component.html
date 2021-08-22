@@ -8,7 +8,7 @@
   <div class="institute_list_back" *ngFor="let institute of all_institutes">
     <div class="portion">
       <div class="head d-flex align-center">
-        <img src="{{uploadsUrl}}/{{ institute.logo }}" alt="">
+        <img src="{{uploadsUrl}}/{{ institute.logo }}" onerror="this.src = 'assets/images/no-image.png';">
         {{ institute.title}}
       </div>
       <div class="list_details">
@@ -17,7 +17,7 @@
       </div>
       <div class="list_footer d-flex align-center justify-content-between">
         <div class="check_back">
-          <input type="checkbox" name="" id="compare">
+          <input type="checkbox" name='{{institute.title}}' id="{{institute.id}}" value='{{institute}}'>
           <label for="compare">
             <span></span>
             Add to compare

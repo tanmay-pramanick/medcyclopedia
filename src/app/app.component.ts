@@ -34,7 +34,7 @@ export class AppComponent {
           this.token_data = data;
           console.log(this.token_data);
           if(this.token_data === null){
-            this.router.navigate(['/signin']);
+            this.router.navigate(['/']);
           }
         });
       }
