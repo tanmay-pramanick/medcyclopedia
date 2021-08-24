@@ -166,8 +166,6 @@ const routes: Routes = [
     loadChildren: () => import('./all-pages/otp/otp.module').then( m => m.OtpPageModule)
   },
   
-  
- 
 
 ];
 @NgModule({

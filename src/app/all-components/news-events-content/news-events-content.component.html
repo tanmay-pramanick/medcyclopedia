@@ -2,7 +2,7 @@
   <h2>News and Events</h2>
   <div class="portion" *ngFor="let ne of news_events">
     <div class="area">
-      <img src="{{uploadsUrl}}{{ ne.image }}" onerror="this.src = 'assets/images/no-image.png';">
+      <img src="{{uploadsUrl}}/{{ ne.image }}" onerror="this.src = 'assets/images/no-image.png';">
       <h2>{{ ne.title}}</h2>
     </div>
     <div class="button">

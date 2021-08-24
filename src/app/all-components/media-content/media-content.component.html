@@ -2,11 +2,11 @@
   <h2>Media</h2>
   <div class="portion" *ngFor="let media of medias">
     <div class="area">
-      <img src="assets/images/n1.jpg" alt="">
-      <h2>The Supreme Court has ruled that NRI seats in private medical collages should not be kept vacant for transffered for other quota</h2>
+      <img src="{{uploadsUrl}}/{{media.image}}" onerror="this.src = 'assets/images/no-image.png';">
+      <h2>{{media.title}}</h2>
     </div>
     <div class="button">
-      <ion-button color="custom" fill="clear" [routerLink]="['/media-inner']">
+      <ion-button color="custom" fill="clear" (click)="viewMedia(media)">
         View
       </ion-button>
     </div>

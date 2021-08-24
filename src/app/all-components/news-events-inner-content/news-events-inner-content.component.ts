@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Browser } from '@capacitor/browser';
 import { LoaderService } from 'src/app/all-services/loader.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-news-events-inner-content',
@@ -12,8 +13,13 @@ export class NewsEventsInnerContentComponent implements OnInit {
 
   loc : any;
   news_event : any;
+  uploadsUrl : any;
   constructor(private location : Location,
-    private loaderservice : LoaderService) { }
+    private loaderservice : LoaderService) {
+
+      this.uploadsUrl = environment.uploadsUrl;
+
+     }
 
   ngOnInit() {
 

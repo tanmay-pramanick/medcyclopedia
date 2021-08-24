@@ -7,9 +7,9 @@ import { environment } from 'src/environments/environment';
 })
 export class MediaService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) {}
 
   getMedia() {
-    return this.http.get(`${environment.apiUrl}/media`);
+    return this.http.get(`${environment.apiUrl}/medias`);
   }
 }

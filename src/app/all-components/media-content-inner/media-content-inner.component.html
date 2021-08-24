@@ -1,10 +1,10 @@
 <div class="news_event_content">
-  <img src="assets/images/n1.jpg" alt="">
-  <h2>The Supreme Court has ruled that NRI seats in private medical collages should not be kept vacant for transffered for other quota</h2>
+  <img src="{{uploadsUrl}}/{{ media.image }}" onerror="this.src = 'assets/images/no-image.png';">
+  <h2>{{media.title}}</h2>
   <div class="portion">
     <h6>Venue | Date | Time</h6>
-    <p>|,</p>
+    <p>{{media.venue}} | {{media.date}} | {{media.time}}</p>
     <h6>Event Details</h6>
-    <a href="">CLICK HERE TO VIEW</a>
+    <p (click)="view(media.link)">CLICK HERE TO VIEW</p>
   </div>
 </div>
