@@ -3,6 +3,7 @@ import { Location } from '@angular/common';
 import { FindinstitutesService } from 'src/app/all-services/findinstitutes.service';
 import { LoaderService } from 'src/app/all-services/loader.service';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class InsListDetailsContentComponent implements OnInit {
 
   constructor(private location: Location,
     private findinstitute: FindinstitutesService,
-    private loaderservice: LoaderService) {
+    private loaderservice: LoaderService,
+    private router : Router) {
     this.uploadsUrl = environment.uploadsUrl;
 
   }
@@ -39,5 +41,10 @@ export class InsListDetailsContentComponent implements OnInit {
     })
 
   }
+
+getInstituteCourses(){
+
+  this.router.navigate(['/courses'], {state : {id : this.institute_id}})
+}
 
 }
