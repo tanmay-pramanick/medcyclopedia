@@ -2,18 +2,18 @@
   <div class="head">
     <img src="assets/images/site_logo.png" alt="">
     <h2>Forgot Password?</h2>
-    <h3>Code to set a new password was sent to +*********9115 via SMS</h3>
+    <!-- <h3>Code to set a new password was sent to +*********9115 via SMS</h3> -->
   </div>
   <div class="form_baCK">
     <form>
       
       <div class="port">
         <p>Mobile Number</p>
-        <input type="password" name="" id="">
+        <input type="number" name="mobile" id="mobile" [(ngModel)]="mobile">
       </div>
      
       
-      <ion-button color="custom" fill="clear"[routerLink]="['/forgot-password']">
+      <ion-button color="custom" fill="clear" (click)="getOtp()" >
         Get OTP
       </ion-button>
     </form>

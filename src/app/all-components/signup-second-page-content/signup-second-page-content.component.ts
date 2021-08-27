@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
@@ -14,6 +14,13 @@ import { UserdetailsService } from 'src/app/all-services/userdetails.service';
   styleUrls: ['./signup-second-page-content.component.scss'],
 })
 export class SignupSecondPageContentComponent implements OnInit {
+
+  @ViewChild("otp1") private otp1: ElementRef<HTMLInputElement  >;
+  @ViewChild("otp2") private otp2: ElementRef;
+  @ViewChild("otp3") private otp3: ElementRef;
+  @ViewChild("otp4") private otp4: ElementRef;
+  @ViewChild("otp5") private otp5: ElementRef;
+  @ViewChild("otp6") private otp6: ElementRef;
 
   otpForm: FormGroup;
   token_data: any;
@@ -201,4 +208,7 @@ export class SignupSecondPageContentComponent implements OnInit {
     });
   }
 
+  gotoNextField(next){
+    next.focus();
+  }
 }

@@ -104,5 +104,11 @@ export class SigninService {
       this.user.next(null);
     });
   }
+
+  resetPassword(mobile : any, password : any){
+
+    return this.http.post(`${environment.apiUrl}/reset-password`,{mobile : mobile, password : password});
+
+  }
   
 }
