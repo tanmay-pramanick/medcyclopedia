@@ -1,6 +1,12 @@
 <div class="notification_back">
   <h2>Notifications</h2>
-  <div class="card">
+  <div class="card" *ngFor="let notification of notifications">
+    <p>{{notification.title}}</p>
+    <ion-button color="custom" fill="clear" (click)="popOpen(notification)">
+      View
+    </ion-button>
+  </div>
+  <!-- <div class="card">
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste veniam, quia excepturi quas, optio voluptas eligendi accusantium</p>
     <ion-button color="custom" fill="clear" (click)="popOpen()">
       View
@@ -53,22 +59,17 @@
     <ion-button color="custom" fill="clear" (click)="popOpen()">
       View
     </ion-button>
-  </div>
-  <div class="card">
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste veniam, quia excepturi quas, optio voluptas eligendi accusantium</p>
-    <ion-button color="custom" fill="clear" (click)="popOpen()">
-      View
-    </ion-button>
-  </div>
+  </div> -->
 </div>
 
 <div class="popup" *ngIf="pop">
   <div class="back">
     <ion-icon name="close-outline" (click)="popClose()"></ion-icon>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste veniam, quia excepturi quas, optio voluptas eligendi accusantium</p>
+    <p>{{notification_details.title}}</p>
     <div class="del">
       <span>Description</span>
-      <a href="">CLICK HERE TO VIEW</a>
+      <!-- <a href="{{notification_details.description}}">CLICK HERE TO VIEW</a> -->
+      <p style="color:gray; font-weight: lighter" (click)="view(notification_details.description)">CLICK HERE TO VIEW</p>
     </div>
   </div>
   

@@ -2,9 +2,31 @@
 <h3>Know it from the experts!</h3>
 <div class="abroad_back">
   <h2>Upcoming Panel discussions</h2>
+  <div class="portion" *ngFor="let upcome of upcoming_panel">
+    <div class="area">
+      <img src="{{uploadsUrl}}/{{ upcome.image }}" onerror="this.src = 'assets/images/no-image.png';">
+      <h2>{{ upcome.title}}</h2>
+    </div>
+    <!-- <div class="button">
+      <ion-button color="custom" fill="clear" (click)="viewNewsEvents(ne)">
+        View
+      </ion-button>
+    </div> -->
+  </div>
 </div>
 <div class="abroad_back">
   <h2>Registered Panel discussions</h2>
+  <div class="portion" *ngFor="let past of past_panel">
+    <div class="area">
+      <img src="{{uploadsUrl}}/{{ past.image }}" onerror="this.src = 'assets/images/no-image.png';">
+      <h2>{{ past.title}}</h2>
+    </div>
+    <!-- <div class="button">
+      <ion-button color="custom" fill="clear" (click)="viewNewsEvents(ne)">
+        View
+      </ion-button>
+    </div> -->
+  </div>
 </div>
 
 <div class="details d-flex align-center flex-column">

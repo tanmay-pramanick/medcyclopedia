@@ -25,4 +25,20 @@ export class FindinstitutesService {
 
     return this.http.get(`${environment.apiUrl}/institutes-countrywise/`+country_id);
   }
+
+  getMyInstitutions(user_id){
+    return this.http.get(`${environment.apiUrl}/my-institutes/`+user_id);
+  }
+
+  addMyInstitute(user_id, institute_id) {
+    return this.http.post(`${environment.apiUrl}/add-my-institute`, {user_id : user_id, institute_id : institute_id})
+  }
+
+  getAllInstitutes(title){
+    return this.http.post(`${environment.apiUrl}/all-institutes`, {title : title});
+  }
+
+  getInstituteNotification(institute_id){
+    return this.http.post(`${environment.apiUrl}/notifications`,{institute_id :institute_id});
+  }
 }
