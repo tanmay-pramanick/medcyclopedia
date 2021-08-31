@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FindinstitutesService } from 'src/app/all-services/findinstitutes.service';
 import { LoaderService } from 'src/app/all-services/loader.service';
 
@@ -13,7 +14,8 @@ export class SearchContentComponent implements OnInit {
   college_data : any = [];
   college_flag : boolean = false;
   constructor(private instituteService: FindinstitutesService,
-    private loader : LoaderService) { }
+    private loader : LoaderService,
+    private router : Router) { }
 
   ngOnInit() {
     
@@ -39,6 +41,12 @@ export class SearchContentComponent implements OnInit {
       
     })
 
+  }
+
+  goToCollege(institute_id){
+   
+
+    this.router.navigate(['/institute-list-details'], { state: {institute_id: institute_id } });
   }
 
 }

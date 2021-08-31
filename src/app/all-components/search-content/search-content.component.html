@@ -3,7 +3,7 @@
   <input type="button" value="SEARCH" (click)="search()">
 </div>
 
-<div class="search_back" *ngFor = "let clg of college_data">
+<div class="search_back" *ngFor = "let clg of college_data" (click)="goToCollege(clg.id)">
   {{clg?.title}}
 </div>
 

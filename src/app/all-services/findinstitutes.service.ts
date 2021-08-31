@@ -41,4 +41,8 @@ export class FindinstitutesService {
   getInstituteNotification(institute_id){
     return this.http.post(`${environment.apiUrl}/notifications`,{institute_id :institute_id});
   }
+
+  getLikedInstitute(user_id, institute_id){
+    return this.http.post(`${environment.apiUrl}/like-institute`, {user_id : user_id, institute_id : institute_id})
+  }
 }
