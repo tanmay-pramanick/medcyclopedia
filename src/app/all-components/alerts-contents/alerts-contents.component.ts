@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FindinstitutesService } from 'src/app/all-services/findinstitutes.service';
+import { LoaderService } from 'src/app/all-services/loader.service';
 
 @Component({
   selector: 'app-alerts-contents',
@@ -7,8 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlertsContentsComponent implements OnInit {
 
-  constructor() { }
+  alerts : any = [];
+  alert_details : any = [];
 
-  ngOnInit() {}
+  constructor(private loader : LoaderService,
+    private instituteService : FindinstitutesService) { }
+
+  ngOnInit() {
+    this.loader.presentLoading();
+    this.instituteService.getInstituteNotification("").subscribe(data =>{
+      console.log(data);
+      this.loader.hideLoading();
+      this.alerts = data;
+    })
+  }
 
 }

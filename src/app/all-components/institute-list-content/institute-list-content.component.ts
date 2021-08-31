@@ -4,6 +4,8 @@ import { FindinstitutesService } from 'src/app/all-services/findinstitutes.servi
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/all-services/loader.service';
 import { environment } from 'src/environments/environment';
+import { SigninService } from 'src/app/all-services/signin.service';
+import { ProfileService } from 'src/app/all-services/profile.service';
 
 
 @Component({
@@ -17,6 +19,9 @@ export class InstituteListContentComponent implements OnInit {
   course_id: string;
   ownership_type: string;
   country_id: string;
+  user_detail : any =[];
+  user_id : string;
+  access_token : any = [];
   loc: any;
   all_institutes: any;
   // institute_id: string;
@@ -25,7 +30,9 @@ export class InstituteListContentComponent implements OnInit {
   constructor(private location: Location,
     private findinsttitutesservice: FindinstitutesService,
     private loaderservice: LoaderService,
-    private router: Router) {
+    private router: Router,
+    private signinservice : SigninService,
+    private profileservice : ProfileService) {
 
     this.uploadsUrl = environment.uploadsUrl;
   }
@@ -37,6 +44,18 @@ export class InstituteListContentComponent implements OnInit {
     console.log(this.location.getState());
 
     this.loaderservice.presentLoading();
+
+    this.signinservice.getCurrentUser().subscribe(data => {
+      console.log(data);
+      this.access_token = data;
+
+      this.profileservice.getProfileData(this.access_token.access_token).subscribe(res =>{
+        console.log(res);
+        this.user_detail = res;
+        this.user_id = this.user_detail.id;
+      })
+
+    })
 
     this.country_id = this.loc.country_id;
 
@@ -73,8 +92,17 @@ export class InstituteListContentComponent implements OnInit {
 
   viewMore(institute_id: string) {
     // console.log(event.target)
-    console.log(institute_id);
-    this.router.navigate(['/institute-list-details'], { state: { institute_id: institute_id } });
+    console.log(this.user_id, institute_id);
+    try{
+      this.findinsttitutesservice.addMyInstitute(this.user_id,institute_id).subscribe(data =>{
+        console.log(data);
+        this.router.navigate(['/institute-list-details'], { state: { institute_id: institute_id } });
+
+      });
+    } catch (e) {
+      console.log(e);
+    }
+    
   }
 
 

@@ -1,4 +1,14 @@
 <div class="search_back">
-  <input type="text" placeholder="Search by collage name" name="" id="">
-  <input type="submit" value="SEARCH">
+  <input type="text" placeholder="Search by college name" name="college" id="college" [(ngModel)]="college">
+  <input type="button" value="SEARCH" (click)="search()">
+</div>
+
+<div class="search_back" *ngFor = "let clg of college_data">
+  {{clg?.title}}
+</div>
+
+<div *ngIf = "college_flag">
+  <div class="search_back">
+    No such college found
+  </div>
 </div>
