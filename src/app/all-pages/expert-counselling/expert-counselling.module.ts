@@ -8,13 +8,19 @@ import { ExpertCounsellingPageRoutingModule } from './expert-counselling-routing
 
 import { ExpertCounsellingPage } from './expert-counselling.page';
 import { ExpertCounsellingContentComponent } from 'src/app/all-components/expert-counselling-content/expert-counselling-content.component';
+import { DatePipe } from '@angular/common';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ExpertCounsellingPageRoutingModule
+    ExpertCounsellingPageRoutingModule,
+
+  ],
+  providers: [
+    DatePipe
   ],
   declarations: [ExpertCounsellingPage, ExpertCounsellingContentComponent]
 })

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-expert-counselling-content',
@@ -8,19 +10,49 @@ import { Component, OnInit } from '@angular/core';
 export class ExpertCounsellingContentComponent implements OnInit {
 
   date : Date;
-  ptiming : string;
+  ptiming : any;
+  radio : any;
   min_date : Date = new Date();
-  current_time : Date = new Date();
-  // min_date: Date = new Date();
+  // current_time : Date = new Date();
+  transform: any;
+  time_flag1 : boolean = false;
+  time_flag2 : boolean = false;
+  time_flag3 : boolean = false;
 
-  constructor() { }
 
-  ngOnInit() {}
+
+  constructor(public datepipe: DatePipe) { }
+
+  ngOnInit() {
+    let date_now = new Date();
+    this.transform = this.datepipe.transform(date_now, 'HHMM');
+    console.log(this.transform);
+
+    if(Number.parseInt(this.transform) >= 5){
+      this.time_flag1 = true;
+      console.log("1")
+
+    }
+    if(Number.parseInt(this.transform) >= 1300){
+      this.time_flag2 = true;
+      console.log("2")
+
+
+    }
+    if(Number.parseInt(this.transform) >= 1700){
+      this.time_flag3 = true;
+      console.log("3")
+
+
+    }
+  }
+
+  
 
   getPrefTiming(event){
     console.log(event);
     // console.log(this.today);
-    console.log(this.current_time);
+    // console.log(this.current_time);
   }
 
   getPreferredMode(event){
@@ -35,26 +67,10 @@ export class ExpertCounsellingContentComponent implements OnInit {
 
   registerNow(){
 
-    console.log(this.min_date)
+    // console.log(this.min_date)
     console.log(this.date);
     console.log(this.ptiming)
-  }
-
-  disable_time = false;
-
-  disableTime(){
-
-    if(this.current_time.getTime() > this.date.getTime()){
-      this.disable_time = true;
-    }
-    // if(this.current_time.getTime() > this.date.getTime(){
-    //   this.disable_time = true;
-    // }
-    // if(this.current_time.getTime() > this.date.getTime(){
-    //   this.disable_time = true;
-    // }
-    
-
+    console.log(this.radio)
   }
 
 }
