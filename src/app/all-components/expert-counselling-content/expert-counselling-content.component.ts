@@ -28,7 +28,7 @@ export class ExpertCounsellingContentComponent implements OnInit {
     this.transform = this.datepipe.transform(date_now, 'HHMM');
     console.log(this.transform);
 
-    if(Number.parseInt(this.transform) >= 5){
+    if(Number.parseInt(this.transform) >= 1000){
       this.time_flag1 = true;
       console.log("1")
 
