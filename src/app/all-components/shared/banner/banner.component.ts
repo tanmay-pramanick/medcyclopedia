@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  images = ['b1.jpg', 'b2.jpg'];
+  images = ['b-slide1.png', 'b-slide2.png', 'b-slide3.png', 'b-slide4.png', 'b-slide5.png'];
   constructor() {}
 
   ngOnInit() {
