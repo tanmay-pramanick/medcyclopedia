@@ -3,54 +3,10 @@
   <div class="details_back d-flex justify-content-between" *ngFor="let photo of ins_photos">
     <div class="port">
       <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
+        <img src="{{uploadsUrl}}/{{photo.photo}}" onerror="this.src = 'assets/images/no-image.png';">
       </div>
     </div>
-    <div class="port">
-      <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
-      </div>
-    </div>
-    <div class="port">
-      <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
-      </div>
-    </div>
-    <div class="port">
-      <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
-      </div>
-    </div>
-    <div class="port">
-      <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
-      </div>
-    </div>
-    <div class="port">
-      <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
-      </div>
-    </div>
-    <div class="port">
-      <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
-      </div>
-    </div>
-    <div class="port">
-      <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
-      </div>
-    </div>
-    <div class="port">
-      <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
-      </div>
-    </div>
-    <div class="port">
-      <div class="back">
-        <img src="assets/images/b1.jpg" alt="">
-      </div>
-    </div>
+    
    
   </div>
 </div>

@@ -98,8 +98,10 @@ export class InstituteListContentComponent implements OnInit {
     // console.log(event.target)
     console.log(this.user_id, institute_id);
     try{
+      this.loaderservice.presentLoading();
       this.findinsttitutesservice.addMyInstitute(this.user_id,institute_id).subscribe(data =>{
         console.log(data);
+        this.loaderservice.hideLoading();
         this.router.navigate(['/institute-list-details'], { state: {institute_id: institute_id } });
 
       });

@@ -20,13 +20,6 @@
         <p>{{ institute.description }}</p>
       </div>
       <div class="list_footer d-flex align-center justify-content-between">
-        <!-- <div class="check_back">
-          <input type="checkbox" #c [value]="item" [checked]="!item.id" (change)="c.checked ? toggle($event) : removeCollege($event)">
-          <label for="compare">
-            <span></span>
-            Add to compare
-          </label>
-        </div> -->
         <ion-checkbox #c [value]="institute" name="{{institute.id}}" (ionChange)="c.checked ? addCollege($event) : removeCollege($event)">
           </ion-checkbox><ion-label>Add to compare</ion-label>
         <div>
