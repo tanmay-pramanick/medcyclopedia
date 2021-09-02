@@ -77,4 +77,8 @@ export class InsListDetailsContentComponent implements OnInit {
     
   }
 
+  getPhotos(){
+    this.router.navigate(['/photo-gallery'], {state :{id:this.institute_id }});
+  }
+
 }

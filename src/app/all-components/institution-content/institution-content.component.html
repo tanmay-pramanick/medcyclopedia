@@ -2,6 +2,11 @@
   <div class="title_back d-flex align-center">    
     <h2>My Institutions</h2>
   </div>
+  <div class="area" *ngFor="let ins of my_inst">
+    <img src="{{uploadsUrl}}/{{ins.logo}}" onerror="this.src = 'assets/images/no-image.png';">
+    <h2>{{ins.title}}</h2>
+  </div>
+  
   <div class="details d-flex align-center flex-column">
     <p>For Expert Counselling</p>
     <ion-button color="custom" fill="clear" [routerLink]="['/expert-counselling']">
