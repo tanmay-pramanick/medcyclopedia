@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://med.medcyclopedia.co.in/api',
-  uploadsUrl: 'http://med.medcyclopedia.co.in/uploads',
+  apiUrl: 'https://med.scriptcrown.com/api',
+  uploadsUrl: 'https://med.scriptcrown.com/uploads',
   banner_path: 'assets/images/'
 };

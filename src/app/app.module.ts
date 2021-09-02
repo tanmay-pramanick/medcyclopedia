@@ -13,16 +13,13 @@ import { AppComponent } from './app.component';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
 
-import { HTTP } from "@ionic-native/http/ngx/index";
-
-
 @NgModule({
   declarations: [AppComponent, HeaderComponent, BannerComponent, FooterComponent],
   entryComponents: [],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, 
     IonicStorageModule.forRoot(),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, HTTP],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

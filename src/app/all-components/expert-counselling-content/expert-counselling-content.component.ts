@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ToastController } from '@ionic/angular';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-expert-counselling-content',
@@ -15,6 +15,7 @@ export class ExpertCounsellingContentComponent implements OnInit {
   radio : any;
   min_date : any;
   // current_time : Date = new Date();
+  public minDate = moment().format();
   transform: any;
   time_flag1 : boolean = false;
   time_flag2 : boolean = false;

@@ -6,7 +6,6 @@ import { CameraPermissionType, Camera, CameraResultType, CameraSource, ImageOpti
 // import { Plugins, CameraResultType, CameraSource } from '@capacitor/core';
 import { ActionSheetController, ToastController } from '@ionic/angular';
 import { UtilService } from 'src/app/services/util.service';
-import { HTTP } from "@ionic-native/http/ngx/index";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoaderService } from 'src/app/all-services/loader.service';
 
@@ -49,7 +48,6 @@ export class ProfileContentsComponent implements OnInit {
     private actionSheetController: ActionSheetController,
     public util: UtilService,
     private http: HttpClient,
-    private nativeHttp: HTTP,
     private loaderservice : LoaderService) { }
 
   edit_pro: boolean = true;
@@ -274,13 +272,13 @@ export class ProfileContentsComponent implements OnInit {
   }
 
   nativePost(url, post) {
-    const header = {
-      headers: new HttpHeaders()
-        .set("Content-Type", "application/x-www-form-urlencoded")
-        .set("Basic", "123456"),
-    };
-    console.log("https://api.circlepoint.in/index.php/" + url, post);
-    return this.nativeHttp.post("https://api.circlepoint.in/index.php/" + url, post, header);
+    // const header = {
+    //   headers: new HttpHeaders()
+    //     .set("Content-Type", "application/x-www-form-urlencoded")
+    //     .set("Basic", "123456"),
+    // };
+    // console.log("https://api.circlepoint.in/index.php/" + url, post);
+    // return this.nativeHttp.post("https://api.circlepoint.in/index.php/" + url, post, header);
   }
 
   post(url, body) {
