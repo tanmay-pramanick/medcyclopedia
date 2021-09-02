@@ -26,6 +26,10 @@ export class InstituteListContentComponent implements OnInit {
   all_institutes: any;
   // institute_id: string;
   uploadsUrl: any;
+  comparecollege: any = [];
+  compare_button_flag: boolean = true;
+  check : boolean = false;
+  clg_detail : any;
 
   constructor(private location: Location,
     private findinsttitutesservice: FindinstitutesService,
@@ -103,6 +107,58 @@ export class InstituteListContentComponent implements OnInit {
       console.log(e);
     }
     
+  }
+
+  check_on(){
+    this.check = !this.check;
+  }
+
+  addCollege(event:any){
+    console.log(event.detail.value);
+    this.clg_detail = event.detail.value;
+    console.log(this.clg_detail)
+
+    if(this.clg_detail !== undefined || this.clg_detail !== null){
+      this.comparecollege.push(this.clg_detail);
+
+    if(this.comparecollege.length === 2){
+      this.compare_button_flag = false
+    }else{
+      this.compare_button_flag = true
+
+    }
+    console.log(this.comparecollege);
+    }
+    
+  }
+
+  removeCollege(event:any){
+    this.clg_detail = event.detail.value;
+    const index: number = this.comparecollege.indexOf(this.clg_detail);
+    this.comparecollege.splice(index,1);
+    console.log(this.comparecollege)
+    // this.compare_button_flag = true
+
+    if(this.comparecollege.length === 2){
+      this.compare_button_flag = false
+    }else{
+      this.compare_button_flag = true
+
+    }
+
+
+  }
+
+  compareColleges(){
+
+    if(this.comparecollege.length === 2){
+      this.compare_button_flag = false
+      console.log("Success")
+
+      // this.router.navigate(["/compare"], {state :{colleges : this.comparecollege}});
+    }else{
+      console.log("More than two college");
+    }
   }
 
 
