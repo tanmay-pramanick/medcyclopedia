@@ -24,6 +24,7 @@ export class InsListDetailsContentComponent implements OnInit {
   user_id : any;
   like : boolean = false;
   user_detail: any = [];
+  like_counter: any;
 
   constructor(private location: Location,
     private findinstitute: FindinstitutesService,
@@ -47,6 +48,7 @@ export class InsListDetailsContentComponent implements OnInit {
       console.log(res);
       this.loaderservice.hideLoading();
       this.institute_detail = res;
+      this.like_counter = this.institute_detail.likecount;
     })
 
   }
@@ -68,6 +70,7 @@ export class InsListDetailsContentComponent implements OnInit {
 
         this.findinstitute.getLikedInstitute(this.user_id, this.institute_id).subscribe(data =>{
           console.log(data);
+          this.like_counter = this.like_counter+1;
           this.like = true;
         })
         
