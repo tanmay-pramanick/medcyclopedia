@@ -1,7 +1,7 @@
 <div (click)="getId($event.target.value)">
   <ul class="service_list_back" *ngFor="let courses of allCourses">
     <li class="d-flex align-center" [value]="courses.id">
-      <img src="assets/images/{{ courses.course_name}}.png" alt="">
+      <img src="assets/images/{{ courses.icon }}" alt="">
       {{ courses.course_name}}
     </li>
     <!-- <li class="d-flex align-center" [routerLink]="['/explore-exam-details']">
