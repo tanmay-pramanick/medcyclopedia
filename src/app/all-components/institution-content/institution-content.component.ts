@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FindinstitutesService } from 'src/app/all-services/findinstitutes.service';
 import { LoaderService } from 'src/app/all-services/loader.service';
 import { ProfileService } from 'src/app/all-services/profile.service';
@@ -15,15 +16,16 @@ export class InstitutionContentComponent implements OnInit {
   my_inst: any = [];
   user_id: any = [];
   access_token: any = [];
-  user_data : any =[];
+  user_data: any = [];
   uploadsUrl: any;
   constructor(private institutionService: FindinstitutesService,
     private loader: LoaderService,
     private signinService: SigninService,
     private profileService: ProfileService,
-    ) {
-      this.uploadsUrl = environment.uploadsUrl;
-     }
+    private router : Router
+  ) {
+    this.uploadsUrl = environment.uploadsUrl;
+  }
 
   ngOnInit() {
 
@@ -74,9 +76,13 @@ export class InstitutionContentComponent implements OnInit {
 
 
     });
-  
 
-}
+
+  }
+
+  viewInstitution(ins){
+    this.router.navigate(['/institute-list-details'], {state:{institute_id : ins.id}})
+  }
 
 
 

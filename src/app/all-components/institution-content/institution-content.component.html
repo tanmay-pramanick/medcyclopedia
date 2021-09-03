@@ -5,6 +5,11 @@
   <div class="area" *ngFor="let ins of my_inst">
     <img src="{{uploadsUrl}}/{{ins.logo}}" onerror="this.src = 'assets/images/no-image.png';">
     <h2>{{ins.title}}</h2>
+    <div class="button">
+      <ion-button color="custom" fill="clear" (click)="viewInstitution(ins)">
+        View
+      </ion-button>
+    </div>
   </div>
   
   <div class="details d-flex align-center flex-column">
