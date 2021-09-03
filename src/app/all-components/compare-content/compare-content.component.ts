@@ -1,4 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { LoaderService } from 'src/app/all-services/loader.service';
 
 @Component({
   selector: 'app-compare-content',
@@ -13,9 +15,23 @@ export class CompareContentComponent implements OnInit {
   active:boolean= false;
   active2:boolean= false;
   active3:boolean= false;
-  constructor() { }
+  colleges : any =[];
+  loc: any;
+  clg1: any;
+  clg2: any;
+  constructor(private location : Location,
+    private loader : LoaderService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    this.loc = this.location.getState();
+    this.colleges = this.loc.colleges;
+
+    if(this.colleges !== undefined || this.colleges !== null){
+      this.clg1 = this.colleges[0];
+      this.clg2 = this.colleges[1];
+    }
+  }
 
 
   courseOneClick(){

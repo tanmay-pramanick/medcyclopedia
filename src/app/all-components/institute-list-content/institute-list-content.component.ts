@@ -155,9 +155,7 @@ export class InstituteListContentComponent implements OnInit {
 
     if(this.comparecollege.length === 2){
       this.compare_button_flag = false
-      console.log("Success")
-
-      // this.router.navigate(["/compare"], {state :{colleges : this.comparecollege}});
+      this.router.navigate(["/compare"], {state :{colleges : this.comparecollege}});
     }else{
       console.log("More than two college");
     }

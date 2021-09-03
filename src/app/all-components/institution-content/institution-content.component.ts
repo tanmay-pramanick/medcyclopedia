@@ -45,6 +45,7 @@ export class InstitutionContentComponent implements OnInit {
 
 
 
+    this.loader.presentLoading();
     this.signinService.getCurrentUser().subscribe(data => {
       if (data) {
         console.log("User s this ")
@@ -63,6 +64,7 @@ export class InstitutionContentComponent implements OnInit {
 
           this.institutionService.getMyInstitutions(this.user_id).subscribe(res1 => {
             console.log(res1);
+            this.loader.hideLoading();
             this.my_inst = res1;
           })
 
