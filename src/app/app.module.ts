@@ -13,13 +13,21 @@ import { AppComponent } from './app.component';
 
 import { IonicStorageModule } from '@ionic/storage-angular';
 
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+
 @NgModule({
   declarations: [AppComponent, HeaderComponent, BannerComponent, FooterComponent],
   entryComponents: [],
   imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule, 
     IonicStorageModule.forRoot(),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    FileTransfer,  
+    File,
+    FileOpener,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

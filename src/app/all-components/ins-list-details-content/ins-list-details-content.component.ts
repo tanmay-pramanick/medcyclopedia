@@ -6,6 +6,10 @@ import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { SigninService } from 'src/app/all-services/signin.service';
 import { ProfileService } from 'src/app/all-services/profile.service';
+import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { File, IWriteOptions } from '@ionic-native/file/ngx';
+import { FileTransfer,FileTransferObject } from '@ionic-native/file-transfer/ngx';
+
 
 
 @Component({
@@ -31,7 +35,10 @@ export class InsListDetailsContentComponent implements OnInit {
     private loaderservice: LoaderService,
     private router: Router,
     private signinservice : SigninService,
-    private profileservice: ProfileService) {
+    private profileservice: ProfileService,
+    private file: File,
+    private fileOpener: FileOpener,
+    private transfer : FileTransfer) {
     this.uploadsUrl = environment.uploadsUrl;
 
   }
@@ -82,6 +89,21 @@ export class InsListDetailsContentComponent implements OnInit {
 
   getPhotos(){
     this.router.navigate(['/photo-gallery'], {state :{id:this.institute_id }});
+  }
+
+  downloadBrochure(url) { //name : any file name
+    const fileTransfer: FileTransferObject = this.transfer.create();
+    const fullurl = this.uploadsUrl+"/"+url;
+    console.log(fullurl)
+    
+    fileTransfer.download(fullurl, this.file.dataDirectory).then((entry) => {
+      this.fileOpener.open(entry.toURL(), 'application/pdf')
+        .then(() => console.log('File is opened'))
+        .catch(e => console.log('Error opening file', e));
+    }, (error) => {
+      console.log(error);
+
+    });
   }
 
 }
