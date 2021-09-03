@@ -31,7 +31,7 @@ export class MediaContentInnerComponent implements OnInit {
 
   async view(url : string){
     console.log(url)
-    await Browser.open({url : "https://"+url});
+    await Browser.open({url : url});
   }
 
 }
