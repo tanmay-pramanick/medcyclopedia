@@ -1,7 +1,10 @@
 <div class="institute_list">
   <div class="title_back">
     <p>Please select 2 Institute from list to compare</p>
-    <ion-button type="button" color="custom" fill="clear" (click)="compareColleges()" [disabled]="compare_button_flag">
+    <!--<ion-button type="button" color="custom" fill="clear" (click)="compareColleges()" [disabled]="compare_button_flag">
+      Compare
+    </ion-button>-->
+    <ion-button type="button" color="custom" fill="clear" [routerLink]="'/compare'">
       Compare
     </ion-button>
   </div>

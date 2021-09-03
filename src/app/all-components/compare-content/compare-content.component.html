@@ -1,0 +1,711 @@
+<div class="notification_back">
+  <h2>general Compare</h2>
+  <div class="card">
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Institute Name</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Institute Name</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>City</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>City</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Inception Year</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col  size="6">
+            <h6>Inception Year</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Ownership Type</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Ownership Type</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Affiliated To</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Affiliated To</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Admin Ranking</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Admin Ranking</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Scholarships</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Scholarships</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Placement</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Placement</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Library Facility</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Library Facility</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Hostel Facility</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Hostel Facility</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Food Availability</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Food Availability</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div class="section">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Reviews</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Reviews</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+
+
+  </div>
+</div>
+
+<div class="notification_back compare">
+  <h2>Course Compare</h2>
+  <div class="card">
+    <div class="card_heaedr d-flex align-center justify-between">
+      <h3>MBBS</h3>
+      <ion-button type="button" fill="clear" (click)="courseOneClick()" [class.active]="active">
+        <span class="expand">Expand</span>
+        <span class="collapse">Collapse</span>
+      </ion-button>
+    </div>
+    <div class="section" *ngIf="sectionOne">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Institute Name</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Institute Name</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="card">
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      
+    </div>
+
+
+
+
+
+  </div>
+  <div class="card">
+    <div class="card_heaedr d-flex align-center justify-between">
+      <h3>MD</h3>
+      <ion-button type="button" fill="clear" (click)="courseTwoClick()" [class.active]="active2">
+        <span class="expand">Expand</span>
+        <span class="collapse">Collapse</span>
+      </ion-button>
+    </div>
+    <div class="section" *ngIf="sectionTwo">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Institute Name</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Institute Name</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="card">
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      <div class="card">
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      <div class="card">
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      <div class="card">
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      
+    </div>
+
+
+
+
+
+  </div>
+  <div class="card">
+    <div class="card_heaedr d-flex align-center justify-between">
+      <h3>MS</h3>
+      <ion-button type="button" fill="clear" (click)="courseThreeClick()" [class.active]="active3">
+        <span class="expand">Expand</span>
+        <span class="collapse">Collapse</span>
+      </ion-button>
+    </div>
+    <div class="section" *ngIf="sectionThree">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <h6>Institute Name</h6>
+            <p>Details</p>
+          </ion-col>
+          <ion-col size="6">
+            <h6>Institute Name</h6>
+            <p>Details</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <div class="card">
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Name</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Annual fee</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Course Duration</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Number of Seats</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="section">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+              <ion-col size="6">
+                <h6>Enrollment Last date</h6>
+                <p>Details</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+      
+    </div>
+
+
+
+
+
+  </div>
+</div>

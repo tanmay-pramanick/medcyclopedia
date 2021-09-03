@@ -164,7 +164,11 @@ const routes: Routes = [
   {
     path: 'otp',
     loadChildren: () => import('./all-pages/otp/otp.module').then( m => m.OtpPageModule)
+  },  {
+    path: 'compare',
+    loadChildren: () => import('./all-pages/compare/compare.module').then( m => m.ComparePageModule)
   },
+
   
 
 ];
