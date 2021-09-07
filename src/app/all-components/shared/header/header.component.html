@@ -11,7 +11,7 @@ router.url === '/refer-earn';then mainheader; else blankheader">
   <ion-header>
     <div class="top d-flex align-center justify-between">
       <div class="avator_section d-flex align-center">
-        <img src="assets/images/pro_avator.png" alt="">
+        <img src="{{uploadsUrl}}/{{backgroundImage}}" alt=""  onerror="this.src = 'assets/images/profile_pic.png';">
         <span>Welcome {{ firstname }}</span>      
       </div>
       <div class="right_icon_details d-flex align-center">

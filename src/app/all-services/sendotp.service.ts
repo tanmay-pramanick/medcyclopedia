@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 
@@ -12,7 +12,10 @@ export class SendotpService {
 
   sendotp(mobile){
 
-    console.log(mobile);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin:': '*' });
+      let options = { headers: headers };
     return this.http.post(`${environment.apiUrl}/send-otp`, {mobile : mobile});
   }
 }

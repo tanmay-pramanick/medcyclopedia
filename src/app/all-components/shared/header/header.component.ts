@@ -5,7 +5,7 @@ import { SigninService } from 'src/app/all-services/signin.service';
 import { Storage } from '@ionic/storage-angular';
 import { ProfileService } from 'src/app/all-services/profile.service';
 import { LoaderService } from 'src/app/all-services/loader.service';
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-header',
@@ -21,11 +21,15 @@ export class HeaderComponent implements OnInit {
   userdata: any = [];
   name: string = "";
   firstname: string = "";
+  uploadsUrl: string = "";
+  backgroundImage : any= "";
   constructor(private router: Router,
     private signInService: SigninService,
     private profileService: ProfileService,
     private loaderservice : LoaderService,
-    private toastController : ToastController) { }
+    private toastController : ToastController) {
+      this.uploadsUrl = environment.uploadsUrl;
+     }
 
   menuopen() {
     this.menu = !this.menu;
@@ -72,6 +76,7 @@ export class HeaderComponent implements OnInit {
               this.displayToast();
               this.userdata = res;
               this.name = this.userdata.name;
+              this.backgroundImage = this.userdata.profile_image;
               this.firstname = this.name.split(" ")[0];
             });
         }

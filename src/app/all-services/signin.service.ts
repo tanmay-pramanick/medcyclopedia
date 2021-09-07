@@ -110,5 +110,13 @@ export class SigninService {
     return this.http.post(`${environment.apiUrl}/reset-password`,{mobile : mobile, password : password});
 
   }
+
+  uploadPhofilephoto(access_token : string,param: any){
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${access_token}`
+    })
+    return this.http.post(`${environment.apiUrl}/upload-profile-photo`, {file : param},{ headers });
+  }
   
 }

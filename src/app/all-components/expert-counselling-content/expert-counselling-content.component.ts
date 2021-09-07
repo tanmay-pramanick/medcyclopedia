@@ -34,13 +34,11 @@ export class ExpertCounsellingContentComponent implements OnInit {
 
   checkDateAndTime(){
     console.log("Time is changed");
-    console.log(this.date);
     this.enterred_date = this.datepipe.transform(this.date, 'yyMMdd');
-    console.log(this.enterred_date)
-
     let today_date = new Date();
     this.today = this.datepipe.transform(today_date, 'yyMMdd');
-    console.log(this.today)
+    
+    console.log(this.enterred_date,this.today)
 
     if (this.enterred_date === this.today) {
       this.transform = this.datepipe.transform(today_date, 'HHMM');

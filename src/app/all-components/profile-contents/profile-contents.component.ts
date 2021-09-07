@@ -8,7 +8,7 @@ import { ActionSheetController, ToastController } from '@ionic/angular';
 import { UtilService } from 'src/app/services/util.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoaderService } from 'src/app/all-services/loader.service';
-
+import { environment } from 'src/environments/environment';
 
 // const { Camera } = Plugins;
 
@@ -35,9 +35,9 @@ export class ProfileContentsComponent implements OnInit {
   user: any;
   token: string;
   all_states: any = [];
-
+  uploadsUrl: any;
   // Camera
-  backgroundImage = "";
+  backgroundImage : any= "";
   uploadStatus = false;
   cover: any = "";
 
@@ -48,7 +48,9 @@ export class ProfileContentsComponent implements OnInit {
     private actionSheetController: ActionSheetController,
     public util: UtilService,
     private http: HttpClient,
-    private loaderservice : LoaderService) { }
+    private loaderservice : LoaderService) {
+      this.uploadsUrl = environment.uploadsUrl;
+    }
 
   edit_pro: boolean = true;
   save_pro: boolean = false;
@@ -102,6 +104,7 @@ export class ProfileContentsComponent implements OnInit {
             console.log(this.f_name);
             this.l_name = this.fullname.split(" ")[1];
             this.mobile = this.userdata.mobile;
+            this.backgroundImage = this.userdata.profile_image;
             this.homestate = this.userdata.homestate;
             this.gender = this.userdata.gender;
             this.cast = this.userdata.cast;
@@ -248,21 +251,21 @@ export class ProfileContentsComponent implements OnInit {
             ? CameraSource.Camera
             : CameraSource.Photos,
       };
-      Camera.getPhoto(options).then((url) => {
+      Camera.getPhoto(options).then((dataUrl) => {
 
         this.util.show("uploading");
         const alpha = {
           mobile: localStorage.getItem("mobile"),
-          img: url,
+          img: dataUrl,
           type: "jpg",
         };
         console.log("parma==>", alpha);
-        this.backgroundImage = "data:image/png;base64," + url;
+        this.backgroundImage = dataUrl.dataUrl;
         this.uploadStatus = true;
 
         console.log(this.backgroundImage);
-
-        this.util.hide();
+        this.add_photo();
+        
 
       });
     } catch (error) {
@@ -271,26 +274,23 @@ export class ProfileContentsComponent implements OnInit {
     }
   }
 
-  nativePost(url, post) {
-    // const header = {
-    //   headers: new HttpHeaders()
-    //     .set("Content-Type", "application/x-www-form-urlencoded")
-    //     .set("Basic", "123456"),
-    // };
-    // console.log("https://api.circlepoint.in/index.php/" + url, post);
-    // return this.nativeHttp.post("https://api.circlepoint.in/index.php/" + url, post, header);
+  add_photo() {
+    if (this.backgroundImage) {
+      //this.spinner.show();
+      this.signinService.uploadPhofilephoto(this.token, this.backgroundImage).subscribe((data: any) => {
+        //this.spinner.hide();
+        if (data && data.status === 200 && data.data) {
+          //this.logo = data.data;
+        }
+      }, (err: any) => {
+        console.log(err);
+        this.util.hide();
+      });
+    } else {
+      console.log('no');
+    }
   }
 
-  post(url, body) {
-    const header = {
-      headers: new HttpHeaders()
-        .set("Content-Type", "application/x-www-form-urlencoded")
-        .set("Basic", "123456"),
-    };
-    const param = this.JSON_to_URLEncoded(body);
-    console.log(param);
-    return this.http.post("https://api.circlepoint.in/index.php/" + url, param, header);
-  }
 
   JSON_to_URLEncoded(element, key?, list?) {
     let new_list = list || [];

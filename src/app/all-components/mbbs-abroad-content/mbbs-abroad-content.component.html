@@ -2,7 +2,7 @@
   <h2>Popular countries to study MBBS Abroad</h2>
 
   <div (click)="getCountry($event.target.value)">
-    <ul class="service_list_back" *ngFor="let countries of allCountries">
+    <ul class="service_list_back" *ngFor="let countries of allCountries | slice:1; let i = index">
       <li class="d-flex align-center" [value]="countries.id">
         <img src="assets/images/{{ countries.name }}.png" alt="">
         {{ countries.name }}
