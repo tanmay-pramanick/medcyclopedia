@@ -30,7 +30,7 @@
           <p>Preferred Date</p>
         </ion-col>
         <ion-col size="8">
-          <ion-datetime placeholder="Select Date" displayFormat="MMM DD, YYYY" [(ngModel)]="date" name="date" [min]="minDate" (ngModelChange)="checkDateAndTime()"></ion-datetime>
+          <ion-datetime placeholder="Select Date" displayFormat="MMM DD, YYYY" [(ngModel)]="bookig.date" name="date" [min]="minDate" (ngModelChange)="checkDateAndTime()"></ion-datetime>
         </ion-col>
         <ion-col size="4">
           <p>Preferred Timing</p>
@@ -38,21 +38,21 @@
         <ion-col size="8">
           <div class="radio_back d-flex" (change)="getPrefTiming($event.target.value)">
             <div class="port d-flex align-center">
-              <input type="radio" name="ptiming" id="morning" value="morning" [(ngModel)]="ptiming" [disabled]="time_flag1" [disabled]="disable_all">
+              <input type="radio" name="ptiming" id="morning" value="morning" [(ngModel)]="bookig.time" [disabled]="time_flag1">
               <label for="morning" class=" d-flex align-center">
                 <span></span>
                 10am-1pm
               </label>
             </div>
             <div class="port d-flex align-center">
-              <input type="radio" name="ptiming" id="afternoon" value="afternoon" [(ngModel)]="ptiming" [disabled]="time_flag2" [disabled]="disable_all">
+              <input type="radio" name="ptiming" id="afternoon" value="afternoon" [(ngModel)]="bookig.time" [disabled]="time_flag2">
               <label for="afternoon" class=" d-flex align-center">
                 <span></span>
                 1pm-5pm
               </label>
             </div>
             <div class="port d-flex align-center">
-              <input type="radio" name="ptiming" id="evening" value="evening" [(ngModel)]="ptiming" [disabled]="time_flag3" [disabled]="disable_all">
+              <input type="radio" name="ptiming" id="evening" value="evening" [(ngModel)]="bookig.time" [disabled]="time_flag3">
               <label for="evening" class=" d-flex align-center">
                 <span></span>
                 5pm-8pm
@@ -68,21 +68,21 @@
         <ion-col size="8">
           <div class="radio_back msg d-flex align-center" (change)="getPreferredMode($event.target.value)">
             <div class="port d-flex align-center">
-              <input type="radio" name="mode" id="msg1" value="Video" [(ngModel)]="mode" [disabled]="disable_all">
+              <input type="radio" name="mode" id="msg1" value="Video" [(ngModel)]="bookig.media" [disabled]="disable_all">
               <label for="msg1" class=" d-flex align-center">
                 <span></span>
                 <img src="assets/images/msg.png" alt="">
               </label>
             </div>
             <div class="port d-flex align-center">
-              <input type="radio" name="mode" id="msg2" value="Whatsapp" [(ngModel)]="mode" [disabled]="disable_all">
+              <input type="radio" name="mode" id="msg2" value="Whatsapp" [(ngModel)]="bookig.media" [disabled]="disable_all">
               <label for="msg2" class=" d-flex align-center">
                 <span></span>
                 <img src="assets/images/msg2.png" alt="">
               </label>
             </div>
             <div class="port d-flex align-center">
-              <input type="radio" name="mode" id="msg3" value="Phone Call" [(ngModel)]="mode" [disabled]="disable_all">
+              <input type="radio" name="mode" id="msg3" value="Phone Call" [(ngModel)]="bookig.media" [disabled]="disable_all">
               <label for="msg3" class=" d-flex align-center">
                 <span></span>
                 <img src="assets/images/msg3.png" alt="">
@@ -99,14 +99,14 @@
         <ion-col size="8">
           <div class="radio_back d-flex" (change)="getPreferredLanguages($event.target.value)">
             <div class="port d-flex align-center">
-              <input type="radio" name="radio" id="english" value="English" [(ngModel)]="radio" [disabled]="disable_all">
+              <input type="radio" name="radio" id="english" value="English" [(ngModel)]="bookig.language" [disabled]="disable_all">
               <label for="english" class=" d-flex align-center">
                 <span></span>
                 English
               </label>
             </div>
             <div class="port d-flex align-center">
-              <input type="radio" name="radio" id="hindi" value="Hindi" [(ngModel)]="radio" [disabled]="disable_all">
+              <input type="radio" name="radio" id="hindi" value="Hindi" [(ngModel)]="bookig.language" [disabled]="disable_all">
               <label for="hindi" class=" d-flex align-center">
                 <span></span>
                 Hindi

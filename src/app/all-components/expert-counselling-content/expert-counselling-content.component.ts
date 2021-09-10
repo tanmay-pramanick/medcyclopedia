@@ -14,12 +14,17 @@ export class ExpertCounsellingContentComponent implements OnInit {
   ptiming : any;
   radio : any;
   min_date : any;
-  // current_time : Date = new Date();
+  bookig : any = {
+    date:'',
+    time:'',
+    language:'',
+    media:''
+  };
   public minDate = moment().format();
   transform: any;
-  time_flag1 : boolean = false;
-  time_flag2 : boolean = false;
-  time_flag3 : boolean = false;
+  time_flag1 : boolean = true;
+  time_flag2 : boolean = true;
+  time_flag3 : boolean = true;
   enterred_date: string;
   today: string;
   disable_all: boolean;
@@ -33,49 +38,37 @@ export class ExpertCounsellingContentComponent implements OnInit {
   }
 
   checkDateAndTime(){
-    console.log("Time is changed");
-    this.enterred_date = this.datepipe.transform(this.date, 'yyMMdd');
+    //console.log("Time is changed");
+    this.enterred_date = this.datepipe.transform(this.bookig.date, 'yyMMdd');
     let today_date = new Date();
     this.today = this.datepipe.transform(today_date, 'yyMMdd');
     
     console.log(this.enterred_date,this.today)
 
     if (this.enterred_date === this.today) {
+      this.time_flag1 = true;
+      this.time_flag2 = true;
+      this.time_flag3 = true;
       this.transform = this.datepipe.transform(today_date, 'HHMM');
-      console.log(this.transform)
-      if (Number.parseInt(this.transform) >= 1000) {
-        this.time_flag1 = true;
+      console.log("inday",this.transform)
+      if (Number.parseInt(this.transform) <= 1000) {
         console.log("1")
-
-      } else {
         this.time_flag1 = false;
-
       }
-      if (Number.parseInt(this.transform) >= 1300) {
-        this.time_flag2 = true;
-        console.log("2")
-
-
-      } else {
+      if (Number.parseInt(this.transform) <= 1300) {
         this.time_flag2 = false;
-
+        console.log("2")
       }
-      if (Number.parseInt(this.transform) >= 1700) {
-        this.time_flag3 = true;
-        console.log("3")
-
-
-      } else {
+      if (Number.parseInt(this.transform) <= 1700) {
         this.time_flag3 = false;
-
+        console.log("3")
       }
-      this.disable_all = false;
     }
-    else if (this.enterred_date < this.today) {
-      // console.log("this date is long gone")
-      this.disable_all = true;
-      this.displayToast1();      
-
+    else {
+      console.log("this date is long gone")
+      this.time_flag1 = false;
+      this.time_flag2 = false;
+      this.time_flag3 = false;
     }
 
   }
@@ -97,11 +90,7 @@ export class ExpertCounsellingContentComponent implements OnInit {
   
 
   registerNow(){
-
-    // console.log(this.min_date)
-    console.log(this.date);
-    console.log(this.ptiming)
-    console.log(this.radio)
+    console.log(this.bookig);
   }
 
   displayToast1() {

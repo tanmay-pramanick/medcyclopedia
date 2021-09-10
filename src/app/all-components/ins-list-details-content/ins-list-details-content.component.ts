@@ -96,13 +96,10 @@ export class InsListDetailsContentComponent implements OnInit {
     const fullurl = this.uploadsUrl+"/"+url;
     console.log(fullurl)
     
-    fileTransfer.download(fullurl, this.file.dataDirectory).then((entry) => {
-      this.fileOpener.open(entry.toURL(), 'application/pdf')
-        .then(() => console.log('File is opened'))
-        .catch(e => console.log('Error opening file', e));
+    fileTransfer.download(fullurl, this.file.dataDirectory + 'browchure.pdf').then((entry) => {
+      console.log('download complete: ' + entry.toURL());
     }, (error) => {
-      console.log(error);
-
+      // handle error
     });
   }
 
