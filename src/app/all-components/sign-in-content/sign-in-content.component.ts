@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { LoaderService } from 'src/app/all-services/loader.service';
 import { SigninService } from 'src/app/all-services/signin.service';
-
+import { UtilService } from 'src/app/services/util.service';
 @Component({
   selector: 'app-sign-in-content',
   templateUrl: './sign-in-content.component.html',
@@ -21,6 +21,7 @@ export class SignInContentComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private router: Router,
+    public util: UtilService,
     private signinuser: SigninService,
     public toastController: ToastController,
     private loaderservice : LoaderService) { }
@@ -61,7 +62,7 @@ export class SignInContentComponent implements OnInit {
   }
 
   async signin() {
-
+    this.util.show("Loading");
     this.signinuser.signinUser(this.signinForm.value.mobile, this.signinForm.value.password).subscribe(res => {
       console.log(res);
       this.token_data = res;
@@ -73,7 +74,7 @@ export class SignInContentComponent implements OnInit {
         console.log(this.access_token);
         // this.signinuser.setToken(this.access_token);
       }
-
+      this.util.hide()
       this.router.navigate(['/home']);
     },
     err => {err=err

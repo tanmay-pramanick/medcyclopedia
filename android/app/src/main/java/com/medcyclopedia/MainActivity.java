@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.medcyclopedia;
 
 import com.getcapacitor.BridgeActivity;
 

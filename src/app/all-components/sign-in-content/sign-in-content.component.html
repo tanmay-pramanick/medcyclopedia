@@ -8,7 +8,7 @@
     <form [formGroup]="signinForm" (ngSubmit)="signin()">
       <div class="port">
         <p>Mobile Number</p>
-        <input type="text" formControlName="mobile" id="mobile" required>
+        <input type="number" formControlName="mobile" id="mobile" required>
       </div>
       <div *ngIf="errorControl.mobile.touched && errorControl.mobile.invalid">
         <span style="color: red;" *ngIf="errorControl.mobile.errors.pattern">

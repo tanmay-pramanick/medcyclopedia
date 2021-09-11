@@ -1,0 +1,18 @@
+<div class="my_institutions_back">
+  <div class="title_back d-flex align-center">
+    <h2>My Success</h2>
+
+  </div>
+  <div class="card" *ngFor="let alert of success">
+    <p>{{alert.title}}...</p>
+    <!-- <ion-button color="custom" fill="clear" (click)="popOpen(alert)">
+      View
+    </ion-button> -->
+  </div>
+  <div class="details d-flex align-center flex-column">
+    <p>For Expert Counselling</p>
+    <ion-button color="custom" fill="clear" [routerLink]="['/expert-counselling']">
+      Click Here
+    </ion-button>
+  </div>
+</div>

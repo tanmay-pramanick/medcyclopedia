@@ -68,12 +68,12 @@ export class HeaderComponent implements OnInit {
         }
 
         if (user) {
-          this.loaderservice.presentLoading();
+          //this.loaderservice.presentLoading();
           this.profileService.getProfileData(this.access_token)
             .subscribe(res => {
-              this.loaderservice.hideLoading();
+             // this.loaderservice.hideLoading();
               console.log(res);
-              this.displayToast();
+              //this.displayToast();
               this.userdata = res;
               this.name = this.userdata.name;
               this.backgroundImage = this.userdata.profile_image;

@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { ToastController } from '@ionic/angular';
+import { OrderService } from 'src/app/all-services/order.service';
 import * as moment from 'moment';
-
+import  'capacitor-razorpay';
+import { Plugins } from '@capacitor/core';
+const { Checkout } = Plugins;
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-expert-counselling-content',
   templateUrl: './expert-counselling-content.component.html',
   styleUrls: ['./expert-counselling-content.component.scss'],
 })
 export class ExpertCounsellingContentComponent implements OnInit {
-
+  
   date : any;
   ptiming : any;
   radio : any;
@@ -18,7 +22,10 @@ export class ExpertCounsellingContentComponent implements OnInit {
     date:'',
     time:'',
     language:'',
-    media:''
+    media:'',
+    order_id:'',
+    payment_id:'',
+    payment_status:''
   };
   public minDate = moment().format();
   transform: any;
@@ -32,7 +39,7 @@ export class ExpertCounsellingContentComponent implements OnInit {
 
 
   constructor(public datepipe: DatePipe,
-    private toastController : ToastController) { }
+    private toastController : ToastController,private router: Router, private orderservice: OrderService) { }
 
   ngOnInit() {
   }
@@ -75,8 +82,6 @@ export class ExpertCounsellingContentComponent implements OnInit {
 
   getPrefTiming(event){
     console.log(event);
-    // console.log(this.today);
-    // console.log(this.current_time);
   }
 
   getPreferredMode(event){
@@ -90,8 +95,41 @@ export class ExpertCounsellingContentComponent implements OnInit {
   
 
   registerNow(){
-    console.log(this.bookig);
+    this.loadCheckout()
   }
+
+  async loadCheckout() {
+    const options = { 
+      key: 'rzp_test_Ii0YAZ0ccSrcLs',
+      key_secret: 'uI4QCdMjvVTQQJ1LGMVauW8R',
+      amount: '49900', 
+     // order_id: 'order_DBJOWzybf0sJbb', //Obtained in response of Step 1.
+      description: 'Credits towards consultation', 
+      image: 'assets/images/site_logo.png', 
+      currency: 'INR', 
+      name: 'Med Consultant', 
+      prefill: { 
+        
+      }, 
+      theme: {
+        color: '#3399cc'
+        }
+      };     
+    try {
+      let data = (await Checkout.open(options));
+      this.bookig.payment_id = data['response']['razorpay_payment_id'];
+      this.bookig.payment_status = 'success';
+      this.bookig.order_id = data['response']['razorpay_payment_id'];
+      console.log(data['response']['razorpay_payment_id'])
+      this.orderservice.createOrder(this.bookig).subscribe(res => {
+        console.log(res);
+        this.router.navigate(['/success'])
+      })
+    } catch (error) {
+      console.log(error['description'])
+    }
+  }
+
 
   displayToast1() {
     this.toastController.create({

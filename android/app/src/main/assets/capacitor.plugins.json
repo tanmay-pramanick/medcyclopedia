@@ -18,5 +18,9 @@
 	{
 		"pkg": "@capacitor/keyboard",
 		"classpath": "com.capacitorjs.plugins.keyboard.KeyboardPlugin"
+	},
+	{
+		"pkg": "capacitor-razorpay",
+		"classpath": "com.ionicframework.capacitor.Checkout"
 	}
 ]

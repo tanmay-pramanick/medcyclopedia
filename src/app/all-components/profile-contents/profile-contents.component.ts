@@ -9,9 +9,9 @@ import { UtilService } from 'src/app/services/util.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoaderService } from 'src/app/all-services/loader.service';
 import { environment } from 'src/environments/environment';
-
+import { defineCustomElements } from '@ionic/pwa-elements/loader'
 // const { Camera } = Plugins;
-
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 @Component({
   selector: 'app-profile-contents',
   templateUrl: './profile-contents.component.html',
@@ -259,25 +259,23 @@ export class ProfileContentsComponent implements OnInit {
           img: dataUrl,
           type: "jpg",
         };
-        console.log("parma==>", alpha);
-        this.backgroundImage = dataUrl.dataUrl;
         this.uploadStatus = true;
-
-        console.log(this.backgroundImage);
-        this.add_photo();
+        this.add_photo(dataUrl.dataUrl);
         
 
       });
     } catch (error) {
-      console.log("error", error);
+      this.util.hide();
       this.util.errorToast(this.util.getString("Something went wrong"));
     }
   }
 
-  add_photo() {
-    if (this.backgroundImage) {
+  add_photo(dataUrl) {
+    if (dataUrl) {
       //this.spinner.show();
-      this.signinService.uploadPhofilephoto(this.token, this.backgroundImage).subscribe((data: any) => {
+      this.signinService.uploadPhofilephoto(this.token,dataUrl).subscribe((data: any) => {
+        this.backgroundImage = data;
+        this.util.hide();
         //this.spinner.hide();
         if (data && data.status === 200 && data.data) {
           //this.logo = data.data;
