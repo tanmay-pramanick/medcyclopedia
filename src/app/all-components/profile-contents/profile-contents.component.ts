@@ -40,7 +40,7 @@ export class ProfileContentsComponent implements OnInit {
   backgroundImage : any= "";
   uploadStatus = false;
   cover: any = "";
-
+  form_validate = true;
   constructor(private profileService: ProfileService,
     private signinService: SigninService,
     private stateservice: StatesService,
@@ -306,6 +306,19 @@ export class ProfileContentsComponent implements OnInit {
     return new_list.join("&");
   }
 
+  formValidation() {
+    //    let mobileElements = document.getElementById("mobileno").querySelectorAll("[required]");
+        let email : any = new String(this.email);
+        let re = new RegExp("[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})");
+        
+        if (
+          re.test(email)
+        ) {
+          this.form_validate = true;
+        } else {
+          this.form_validate = false;
+        }
+      }
 
 
 }

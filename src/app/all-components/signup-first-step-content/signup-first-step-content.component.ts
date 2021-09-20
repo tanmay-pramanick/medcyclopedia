@@ -29,7 +29,7 @@ export class SignupFirstStepContentComponent implements OnInit {
     this.signupForm = this.fb.group({
       first_name: ['', [Validators.required, Validators.minLength(2)]],
       last_name: ['', [Validators.required, Validators.minLength(2)]],
-      email: ['', Validators.required],
+      email: [null, [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]],
       password: ['', Validators.required],
       mobile: ['', [Validators.required, Validators.pattern("[0-9]{10}")]],
       cpassword: ['',[ Validators.required]],

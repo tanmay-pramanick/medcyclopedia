@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.medcyclopedia',
+  appId: 'com.infinity.medcyclopedia',
   appName: 'medcyclopedia',
   webDir: 'www',
   bundledWebRuntime: false

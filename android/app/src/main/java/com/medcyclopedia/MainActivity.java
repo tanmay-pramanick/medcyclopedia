@@ -1,4 +1,4 @@
-package com.medcyclopedia;
+package com.infinity.medcyclopedia;
 
 import com.getcapacitor.BridgeActivity;
 

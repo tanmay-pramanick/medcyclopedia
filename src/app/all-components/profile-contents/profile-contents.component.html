@@ -77,7 +77,7 @@
       </div>
       <div class="portion">
         <p>Email</p>
-        <input type="text" class="text_box" placeholder="Email" name="email" id="email" [disabled]="notEditMode" [(ngModel)]="email">
+        <input type="text" class="text_box" placeholder="Email" name="email" id="email" [disabled]="notEditMode" [(ngModel)]="email" (ngModelChange)="formValidation()" >
       </div>
       <div class="portion">
         <p>NEET Score</p>
@@ -95,8 +95,12 @@
       Edit
     </ion-button>
   </div>
-  <div class="portion d-flex" *ngIf="save_pro" (click)="save()">
-    <ion-button color="custom" class="form_button" fill="clear">
+  <div class="portion d-flex" *ngIf="save_pro">
+
+    <ion-button color="custom" class="form_button" fill="clear" disabled="disabled" *ngIf="!form_validate">
+      Save
+    </ion-button>
+    <ion-button color="custom" class="form_button" fill="clear" *ngIf="form_validate"  (click)="save()">
       Save
     </ion-button>
     <ion-button color="custom" class="form_button color2" fill="clear" (click)="cancleProButton()">

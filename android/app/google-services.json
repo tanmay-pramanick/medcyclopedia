@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "727015507423",
+    "project_id": "medcyclopedia",
+    "storage_bucket": "medcyclopedia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727015507423:android:2a2949754527219163306a",
+        "android_client_info": {
+          "package_name": "com.infinity.medcyclopedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727015507423-4h3i6j3kpjkp65hvf7hrbqsibp2bq2on.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq_Xt7llvkdnh2aPHpL_NLZIQzn9HV_nQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727015507423-0qoop0c0r2dkocomrkc74n7r1l445e1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
