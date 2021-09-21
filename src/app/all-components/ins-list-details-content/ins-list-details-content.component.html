@@ -85,7 +85,7 @@
       </tr>
       <tr>
         <td>Website</td>
-        <td><a href="{{institute_detail.website }}" target="_blank"></a> {{institute_detail.website }}</td>
+        <td><a href="{{institute_detail.website }}" target="_blank"> Click to visit </a></td>
       </tr>
     </tbody>
   </table>
@@ -112,7 +112,7 @@
       </ion-button>
     </ion-col>
     <ion-col size="6">
-      <a href="{{uploadsUrl}}/{{institute_detail.brouchure}}" target="_blank" color="custom button-inner" fill="clear" style="padding: 13px;margin-top: 13px;display: block;background: #0c4d9d;text-decoration: none;color: #fff;text-align: center;font-size: 14px;border-radius: 6px;
+      <a  (click)="ViewPDFFromUrl(institute_detail.brouchure,'demo')" color="custom button-inner" fill="clear" style="padding: 13px;margin-top: 13px;display: block;background: #0c4d9d;text-decoration: none;color: #fff;text-align: center;font-size: 14px;border-radius: 6px;
       cursor: pointer;">
         Download Brochure
       </a>

@@ -23,7 +23,7 @@ export class InsListDetailsContentComponent implements OnInit {
   loc: any;
   institute_detail: any = [];
   uploadsUrl: any;
-
+  fetching = true;
   token_detail  : any =[];
   user_id : any;
   like : boolean = false;
@@ -37,7 +37,7 @@ export class InsListDetailsContentComponent implements OnInit {
     private signinservice : SigninService,
     private profileservice: ProfileService,
     private file: File,
-    private fileOpener: FileOpener,
+    private fileOpen: FileOpener,
     private transfer : FileTransfer) {
     this.uploadsUrl = environment.uploadsUrl;
 
@@ -91,16 +91,21 @@ export class InsListDetailsContentComponent implements OnInit {
     this.router.navigate(['/photo-gallery'], {state :{id:this.institute_id }});
   }
 
-  downloadBrochure(url) { //name : any file name
-    const fileTransfer: FileTransferObject = this.transfer.create();
-    const fullurl = this.uploadsUrl+"/"+url;
-    console.log(fullurl)
-    
-    fileTransfer.download(fullurl, this.file.dataDirectory + 'browchure.pdf').then((entry) => {
-      console.log('download complete: ' + entry.toURL());
+  ViewPDFFromUrl(URL: string, filename: string) {
+
+    this.fetching = true;
+    console.log(URL);
+    filename = filename + new Date().toISOString();
+    const transfer: FileTransferObject = this.transfer.create();
+    transfer.download(URL, this.file.dataDirectory + `${filename}.pdf`).then((entry) => {
+      const entryUrl = entry.toURL();
+      this.fileOpen.open(entryUrl, 'application/pdf');
+      this.fetching = false;
     }, (error) => {
-      // handle error
+     console.log('Failed!', error);
+     this.fetching = false;
     });
+
   }
 
 }
