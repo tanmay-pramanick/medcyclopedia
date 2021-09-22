@@ -1,0 +1,60 @@
+.card{
+    width: 100%; height: auto; padding: 2rem; box-shadow: rgba(0,0,0,.2) 1px 0 1rem; border-radius: 5px; margin-bottom: 2rem; background-color: #fff;
+    h2{
+        color: #e85b23;
+        font-size: 1.6rem;
+        text-transform: capitalize;
+        margin: 0 0 2rem 0;
+        padding: 0;
+    }
+    h3{
+        color: #343434;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        margin: 0 0 0 0;
+        padding: 0;
+    }
+    p{
+        color: #343434;
+        font-size: 1.4rem;  
+        width: 100%;
+    }
+    ol{
+        margin: 0;
+        padding: 15px;
+        li{
+            color: #343434;
+            font-size: 1.4rem;  
+            width: 100%;
+            margin-bottom: 2px;
+        }
+    }
+    .portion{
+        width: 100%; margin-bottom: 4rem;
+        .ion-color-custom{
+            width:15rem; 
+        }
+    }
+    
+}
+
+ion-button{
+   background-color: #0c4d9d; border-radius: 12px; color: #fff; text-transform: capitalize; margin-top: 1.4rem; 
+    box-shadow: rgba(0,0,0,.2) 1px 0 10px; 
+    
+}
+
+
+.check_back{
+    width: 100%;
+    position: relative;
+    ion-checkbox{
+        width: 26px;
+    }
+    ion-label{
+        padding-left: 10px;
+        font-weight: normal;
+        font-size: 1.5rem;
+        color: #343434;
+    }
+}

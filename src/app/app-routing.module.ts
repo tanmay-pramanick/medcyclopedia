@@ -172,7 +172,11 @@ const routes: Routes = [
   {
     path: 'success',
     loadChildren: () => import('./all-pages/success/success.module').then( m => m.SuccessPageModule)
+  },  {
+    path: 'payment-terms',
+    loadChildren: () => import('./all-pages/payment-terms/payment-terms.module').then( m => m.PaymentTermsPageModule)
   },
+
 
   
 

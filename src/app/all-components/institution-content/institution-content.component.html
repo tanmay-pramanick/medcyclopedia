@@ -1,10 +1,11 @@
 <div class="my_institutions_back">
-  <div class="title_back d-flex align-center row">    
+  <div class="title_back">    
     <h2>My Institutions</h2>
-    <span class="area col-md-12" *ngFor="let ins of my_inst">
+    <div class="list" class="area" *ngFor="let ins of my_inst">
       <!-- <img src="{{uploadsUrl}}/{{ins.logo}}" onerror="this.src = 'assets/images/no-image.png';"> -->
-      <h2>{{ins.title}}</h2>      
-    </span>
+      <h3>{{ins.title}}</h3>  
+      <p>You viewed details of this institute</p>    
+    </div>
   </div>
   
   

@@ -10,35 +10,33 @@ router.url === '/refer-earn';then mainfooter; else blankfooter">
 
 <ng-template #blankfooter></ng-template> 
 <ng-template #mainfooter>
-  <footer>
-    <ion-footer class="ion-no-border">
-      <ion-toolbar>
-        <ion-grid>
-          <ion-row>
-            <ion-col [routerLink]="['/home']" routerLinkActive="router-link-active">
-              <div class="port d-flex flex-column">
-                home
-              </div>
-            </ion-col>
-            <ion-col [routerLink]="['/my-institutions']" routerLinkActive="router-link-active">
-              <div class="port d-flex flex-column">
-                my institutions
-              </div>
-            </ion-col>
-            <ion-col [routerLink]="['/my-activity']" routerLinkActive="router-link-active">
-              <div class="port d-flex flex-column">
-                my activity
-              </div>
-            </ion-col>
-            <ion-col [routerLink]="['/my-alerts']" routerLinkActive="router-link-active">
-              <div class="port d-flex flex-column">
-                my alerts
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-toolbar>
-    </ion-footer>
-  </footer>
+  <ion-footer class="ion-no-border">
+    <ion-toolbar>
+      <ion-grid>
+        <ion-row>
+          <ion-col [routerLink]="['/home']" routerLinkActive="router-link-active">
+            <div class="port d-flex flex-column">
+              home
+            </div>
+          </ion-col>
+          <ion-col [routerLink]="['/my-institutions']" routerLinkActive="router-link-active">
+            <div class="port d-flex flex-column">
+              my institutions
+            </div>
+          </ion-col>
+          <ion-col [routerLink]="['/my-activity']" routerLinkActive="router-link-active">
+            <div class="port d-flex flex-column">
+              my activity
+            </div>
+          </ion-col>
+          <ion-col [routerLink]="['/my-alerts']" routerLinkActive="router-link-active">
+            <div class="port d-flex flex-column">
+              my alerts
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>
 </ng-template>
 

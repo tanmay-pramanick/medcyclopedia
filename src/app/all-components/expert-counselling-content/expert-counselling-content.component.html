@@ -117,7 +117,10 @@
       </ion-row>
       
     </ion-grid>
-    <ion-button type="button" color="custom" fill="clear" (click)="registerNow()" [disabled]="disable_all">
+    <!--<ion-button type="button" color="custom" fill="clear" (click)="registerNow()" [disabled]="disable_all">
+      register Now
+    </ion-button>-->
+    <ion-button type="button" color="custom" [routerLink]="'/payment-terms'" fill="clear" [disabled]="disable_all">
       register Now
     </ion-button>
   </div>

@@ -20,18 +20,19 @@
       </div>
       <div class="list_details">
         <small>Description</small>
-        <p>{{ institute.description }}</p>
+        <p>{{ institute.description | summary }}</p>
       </div>
-      <div class="list_footer d-flex align-center justify-content-between">
-        <ion-checkbox #c [value]="institute" name="{{institute.id}}" (ionChange)="c.checked ? addCollege($event) : removeCollege($event)">
-          </ion-checkbox><ion-label>Add to compare</ion-label>
-        <div>
-          <ion-button type="button" color="custom" fill="clear" (click)="viewMore(institute.id)">
-            View Details
+      <div class="list_footer d-flex align-center justify-between">
+          <div class="check_back d-flex align-center">
+            <ion-checkbox #c [value]="institute" name="{{institute.id}}" (ionChange)="c.checked ? addCollege($event) : removeCollege($event)">
+            </ion-checkbox>
+            <ion-label>Add to compare</ion-label>
+          </div>
+          <ion-button type="button" fill="clear" (click)="viewMore(institute.id)">
+            View More
           </ion-button>
-        </div>
-
       </div>
+
     </div>
   </div>
 

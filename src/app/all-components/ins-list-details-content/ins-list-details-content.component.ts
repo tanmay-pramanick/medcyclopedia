@@ -29,6 +29,8 @@ export class InsListDetailsContentComponent implements OnInit {
   like : boolean = false;
   user_detail: any = [];
   like_counter: any;
+  active: boolean= false;
+  view_button_hide: boolean= true;
 
   constructor(private location: Location,
     private findinstitute: FindinstitutesService,
@@ -58,6 +60,11 @@ export class InsListDetailsContentComponent implements OnInit {
       this.like_counter = this.institute_detail.likecount;
     })
 
+  }
+
+  viewmore_details(){
+    this.active= true;
+    this.view_button_hide= false;
   }
 
   getInstituteCourses() {
