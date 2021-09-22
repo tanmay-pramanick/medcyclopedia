@@ -16,7 +16,7 @@
       <li>Vero illum labore quae aspernatur, praesentium voluptatem dicta laborum. Similique quidem ad neque quod ratione!</li>
     </ol>
     <div class="check_back d-flex align-center">
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox [(ngModel)]="checkterm" ></ion-checkbox>
       <ion-label>By Signing up i agreed to the medcyclopedia terms & conditions</ion-label>
     </div>
   </div>
@@ -28,7 +28,10 @@
   <div class="portion">
     <p>by our experts!</p>
     <p>To avail this special service</p>
-    <ion-button color="custom" fill="clear">
+    <ion-button color="custom" fill="clear" (click)="loadCheckout()" *ngIf="checkterm" >
+      Subscribe Now!
+    </ion-button>
+    <ion-button color="custom" fill="clear" *ngIf="!checkterm" disabled >
       Subscribe Now!
     </ion-button>
 </div>

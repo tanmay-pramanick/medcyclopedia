@@ -1,32 +1,8 @@
 <div class="content_area">
   <h2>Detailed Page View</h2>
   <ul class="list_back">
-    <li>
-      Birla Institute of technology and Science, Pilani Hydrabad
-    </li>
-    <li>
-      I.G & B.G Hospital
-    </li>
-    <li>
-      SRTR medical Collage, Ambajogi
-    </li>
-    <li>
-      Birla Institute of technology and Science, Pilani Hydrabad
-    </li>
-    <li>
-      I.G & B.G Hospital
-    </li>
-    <li>
-      SRTR medical Collage, Ambajogi
-    </li>
-    <li>
-      Birla Institute of technology and Science, Pilani Hydrabad
-    </li>
-    <li>
-      I.G & B.G Hospital
-    </li>
-    <li>
-      SRTR medical Collage, Ambajogi
+    <li *ngFor="let ins of my_inst">
+      {{ins.title}}
     </li>
   </ul>
 </div>

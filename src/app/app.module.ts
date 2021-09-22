@@ -16,7 +16,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
-
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, BannerComponent, FooterComponent],
   entryComponents: [],
@@ -27,6 +27,7 @@ import { FileTransfer } from '@ionic-native/file-transfer/ngx';
     FileTransfer,  
     File,
     FileOpener,
+    DatePipe,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

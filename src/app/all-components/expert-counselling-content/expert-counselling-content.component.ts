@@ -6,7 +6,7 @@ import * as moment from 'moment';
 import  'capacitor-razorpay';
 import { Plugins } from '@capacitor/core';
 const { Checkout } = Plugins;
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 @Component({
   selector: 'app-expert-counselling-content',
   templateUrl: './expert-counselling-content.component.html',
@@ -35,7 +35,7 @@ export class ExpertCounsellingContentComponent implements OnInit {
   enterred_date: string;
   today: string;
   disable_all: boolean;
-
+  checkcounsilData: any = false;
 
 
   constructor(public datepipe: DatePipe,
@@ -82,59 +82,42 @@ export class ExpertCounsellingContentComponent implements OnInit {
 
   getPrefTiming(event){
     console.log(event);
+    this.checkCounsil();
   }
 
   getPreferredMode(event){
     console.log(event);
+    this.checkCounsil();
   }
 
   getPreferredLanguages(event){
     console.log(event)
+    this.checkCounsil();
   }
 
-  
-
-  registerNow(){
-    this.loadCheckout()
+  gotoPaymentTerm(){   
+    let navigationExtras: NavigationExtras = {
+      state: {
+        bookig: this.bookig
+      }
+    };
+    this.router.navigate(['payment-terms'], navigationExtras);      
   }
 
-  async loadCheckout() {
-    const options = { 
-      key: 'rzp_test_Ii0YAZ0ccSrcLs',
-      key_secret: 'uI4QCdMjvVTQQJ1LGMVauW8R',
-      amount: '49900', 
-     // order_id: 'order_DBJOWzybf0sJbb', //Obtained in response of Step 1.
-      description: 'Credits towards consultation', 
-      image: 'assets/images/site_logo.png', 
-      currency: 'INR', 
-      name: 'Med Consultant', 
-      prefill: { 
-        
-      }, 
-      theme: {
-        color: '#3399cc'
-        }
-      };     
-    try {
-      let data = (await Checkout.open(options));
-      this.bookig.payment_id = data['response']['razorpay_payment_id'];
-      this.bookig.payment_status = 'success';
-      this.bookig.order_id = data['response']['razorpay_payment_id'];
-      console.log(data['response']['razorpay_payment_id'])
-      this.orderservice.createOrder(this.bookig).subscribe(res => {
-        console.log(res);
-        this.router.navigate(['/success'])
-      })
-    } catch (error) {
-      console.log(error['description'])
+  checkCounsil(){
+    console.log(this.bookig);
+    
+    if(this.bookig.date != '' && this.bookig.time != '' && this.bookig.language != '' && this.bookig.media != '') {
+      this.checkcounsilData = true;
+    } else {
+      this.checkcounsilData = false;
+      
     }
   }
 
-
-  displayToast1() {
+  displayToast1(message : any = 'You have enterred a past date') {
     this.toastController.create({
-
-      message: 'You have enterred a past date',
+      message: message,
       position: 'bottom',
       duration: 1500,
       buttons: [
