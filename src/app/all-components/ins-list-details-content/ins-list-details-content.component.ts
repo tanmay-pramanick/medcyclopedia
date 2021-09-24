@@ -98,15 +98,17 @@ export class InsListDetailsContentComponent implements OnInit {
     this.router.navigate(['/photo-gallery'], {state :{id:this.institute_id }});
   }
 
-  ViewPDFFromUrl(URL: string, filename: string) {
-
+  ViewPDFFromUrl(url: string, filename: string) {
+    let URL = this.uploadsUrl+'/'+url;
     this.fetching = true;
-    console.log(URL);
     filename = filename + new Date().toISOString();
     const transfer: FileTransferObject = this.transfer.create();
-    transfer.download(URL, this.file.dataDirectory + `${filename}.pdf`).then((entry) => {
+    console.log('path', this.file.dataDirectory);
+    transfer.download(URL, this.file.dataDirectory + `browchure.pdf`).then((entry) => {
       const entryUrl = entry.toURL();
+      console.log('entryUrl', entryUrl);
       this.fileOpen.open(entryUrl, 'application/pdf');
+      console.log('open');
       this.fetching = false;
     }, (error) => {
      console.log('Failed!', error);
