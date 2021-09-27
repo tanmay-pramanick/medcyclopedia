@@ -1,5 +1,6 @@
 .entry_point_details_back{
     width: 100%; padding-top: 5rem; 
+    
     .head{
         width: 100%; text-align: center;
         img{
@@ -11,6 +12,10 @@
 
 .slide_options{
     width: 100%; height: 100vh; position: fixed; top: 0; left: 0; padding-top: 28rem;
+    background-image: url(../../../assets/images/main_screen_slide_bg.png);
+    background-size: 100%; 
+    background-position: center bottom;
+    background-repeat: no-repeat;
     h3, h2{
         display: block;
         width: 100%;
