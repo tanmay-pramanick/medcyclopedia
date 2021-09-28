@@ -7,9 +7,10 @@ import { Router } from '@angular/router';
 import { SigninService } from 'src/app/all-services/signin.service';
 import { ProfileService } from 'src/app/all-services/profile.service';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
 import { File, IWriteOptions } from '@ionic-native/file/ngx';
 import { FileTransfer,FileTransferObject } from '@ionic-native/file-transfer/ngx';
-
+import { ToastController } from '@ionic/angular';
 
 
 @Component({
@@ -38,6 +39,8 @@ export class InsListDetailsContentComponent implements OnInit {
     private router: Router,
     private signinservice : SigninService,
     private profileservice: ProfileService,
+    private toastController: ToastController,
+    private nativeHTTP: HTTP, 
     private file: File,
     private fileOpen: FileOpener,
     private transfer : FileTransfer) {
@@ -109,12 +112,77 @@ export class InsListDetailsContentComponent implements OnInit {
       console.log('entryUrl', entryUrl);
       this.fileOpen.open(entryUrl, 'application/pdf');
       console.log('open');
+      this.displayToast();
       this.fetching = false;
     }, (error) => {
+      this.displayToastFailure();
      console.log('Failed!', error);
      this.fetching = false;
     });
 
   }
+
+  downloadFileAndStore(url: string, filename: string) {
+    //
+    let file = filename.replace(/ /g,'')
+    const filePath = this.file.externalRootDirectory+ '/Download/' + file+'.pdf'; 
+    let URL = this.uploadsUrl+'/'+url;
+    // for iOS use this.file.documentsDirectory
+    console.log(URL, filePath);
+    this.nativeHTTP.downloadFile(URL, {}, {}, filePath).then(response => {
+       // prints 200
+       this.displayToast();
+       console.log('success block...', JSON.stringify(response));
+    }).catch(err => {
+        // prints 403
+        this.displayToastFailure();
+        console.log('error block ... ', err.status);
+        // prints Permission denied
+        console.log('error block ... ', err.error);
+    })
+ }
+
+ displayToast() {
+    this.toastController.create({
+      message: 'Brochure Downloaded Successfully',
+      position: 'bottom',
+      duration: 2000,
+      buttons: [
+        {
+          side: 'end',
+          icon: 'close-outline',
+          role: 'cancel',
+          handler: () => {
+            console.log('');
+          }
+        }
+      ]
+
+    }).then((toast) => {
+      toast.present();
+    });
+  }
+
+displayToastFailure() {
+  this.toastController.create({
+
+    message: 'Browchure data not saved',
+    duration : 2000,
+    position: 'bottom',
+    buttons: [
+      {
+        side: 'end',
+        icon: 'close-outline',
+        role: 'cancel',
+        handler: () => {
+          console.log('');
+        }
+      }
+    ]
+
+  }).then((toast) => {
+    toast.present();
+  });
+}
 
 }
