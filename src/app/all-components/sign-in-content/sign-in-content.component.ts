@@ -79,6 +79,7 @@ export class SignInContentComponent implements OnInit {
     },
     err => {err=err
       console.log(err);
+      this.util.hide()
       this.displayToast();
     });
 
