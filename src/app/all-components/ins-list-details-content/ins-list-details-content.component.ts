@@ -11,7 +11,7 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { File, IWriteOptions } from '@ionic-native/file/ngx';
 import { FileTransfer,FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { ToastController } from '@ionic/angular';
-
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'app-ins-list-details-content',
@@ -42,6 +42,7 @@ export class InsListDetailsContentComponent implements OnInit {
     private toastController: ToastController,
     private nativeHTTP: HTTP, 
     private file: File,
+    public util: UtilService,
     private fileOpen: FileOpener,
     private transfer : FileTransfer) {
     this.uploadsUrl = environment.uploadsUrl;
@@ -101,48 +102,55 @@ export class InsListDetailsContentComponent implements OnInit {
     this.router.navigate(['/photo-gallery'], {state :{id:this.institute_id }});
   }
 
-  ViewPDFFromUrl(url: string, filename: string) {
-    let URL = this.uploadsUrl+'/'+url;
-    this.fetching = true;
-    filename = filename + new Date().toISOString();
-    const transfer: FileTransferObject = this.transfer.create();
-    console.log('path', this.file.dataDirectory);
-    transfer.download(URL, this.file.dataDirectory + `browchure.pdf`).then((entry) => {
-      const entryUrl = entry.toURL();
-      console.log('entryUrl', entryUrl);
-      this.fileOpen.open(entryUrl, 'application/pdf');
-      console.log('open');
-      this.displayToast();
-      this.fetching = false;
-    }, (error) => {
-      this.displayToastFailure();
-     console.log('Failed!', error);
-     this.fetching = false;
-    });
+  // ViewPDFFromUrl(url: string, filename: string) {
+  //   let URL = this.uploadsUrl+'/'+url;
+  //   this.fetching = true;
+  //   let file = filename.replace(/ /g,'')
+  //   const transfer: FileTransferObject = this.transfer.create();
+  //   console.log('path', this.file.dataDirectory);
+  //   transfer.download(URL, this.file.externalRootDirectory + '/Download/browchure.pdf').then((entry) => {
+  //     const entryUrl = entry.toURL();
+  //     console.log('entryUrl', entryUrl);
+  //     this.fileOpen.open(entryUrl, 'application/pdf');
+  //     console.log('open');
+  //     this.displayToast();
+  //     this.fetching = false;
+  //   }, (error) => {
+  //     this.displayToastFailure();
+  //    console.log('Failed!', error);
+  //    this.fetching = false;
+  //   });
 
-  }
+  // }
 
   downloadFileAndStore(url: string, filename: string) {
     //
+    this.util.show("Downloading");
     let file = filename.replace(/ /g,'')
-    const filePath = this.file.externalRootDirectory+ '/Download/' + file+'.pdf'; 
+    const filePath = this.file.externalRootDirectory + '/Download/' + file+'.pdf'; 
     let URL = this.uploadsUrl+'/'+url;
     // for iOS use this.file.documentsDirectory
     console.log(URL, filePath);
     this.nativeHTTP.downloadFile(URL, {}, {}, filePath).then(response => {
        // prints 200
+       this.util.hide()
        this.displayToast();
+       const entryUrl = response.toURL();
+        console.log('entryUrl', entryUrl);
+        this.fileOpen.open(entryUrl, 'application/pdf');
        console.log('success block...', JSON.stringify(response));
     }).catch(err => {
         // prints 403
+        this.util.hide()
         this.displayToastFailure();
         console.log('error block ... ', err.status);
         // prints Permission denied
         console.log('error block ... ', err.error);
     })
- }
+  }
 
- displayToast() {
+
+  displayToast() {
     this.toastController.create({
       message: 'Brochure Downloaded Successfully',
       position: 'bottom',

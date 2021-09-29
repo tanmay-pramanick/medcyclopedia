@@ -30,7 +30,8 @@ export class InstitutionsFormContentComponent implements OnInit {
       console.log(res);
       this.loaderservice.hideLoading();
       this.allStates = res;
-      this.state_id = "2"
+      this.state_id = "2";
+      this.ownership_type = "Government";
     })
   }
 

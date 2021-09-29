@@ -3,7 +3,10 @@
   <div class="card">
     <div class="section">
       <h6>Description</h6>
-      <p>{{ exam_detail.description }}</p>
+      <p class="more_details" [class.active]="active" >{{ exam_detail.description }}</p>
+      <ion-button type="button" fill="clear" *ngIf="view_button_hide" (click)="viewmore_details()">
+        View More
+      </ion-button>
     </div>
     <div class="section">
       <h6>Application Procedure</h6>

@@ -5,6 +5,23 @@
         }
 }
 
+p{
+    font-size: 1.4rem;     color: #343434; margin: 0;
+    &.more_details{
+        height: 67px;
+        overflow: hidden;
+        &.active{
+            height: auto;
+        }
+    }
+}
+
+ion-button{
+    color: #000;
+    opacity: 1;
+    text-transform: capitalize;
+    float: right;
+}
 
 .ion-color-custom{
     width: 14rem; height: 4rem; background-color: #0c4d9d; border-radius: 12px; color: #fff; text-transform: capitalize; margin-top: 5px; 

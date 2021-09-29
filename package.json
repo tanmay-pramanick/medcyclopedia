@@ -38,6 +38,7 @@
     "capacitor-razorpay": "git+https://github.com/razorpay/razorpay-capacitor.git",
     "cordova-plugin-advanced-http": "^3.2.1",
     "cordova-plugin-file": "^6.0.2",
+    "cordova-plugin-file-opener2": "^3.0.5",
     "cordova-plugin-file-transfer": "^1.7.1",
     "cordova-sqlite-storage": "^6.0.0",
     "moment": "^2.29.1",

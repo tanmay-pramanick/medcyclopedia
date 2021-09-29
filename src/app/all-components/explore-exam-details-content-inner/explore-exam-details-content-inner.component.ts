@@ -13,7 +13,8 @@ export class ExploreExamDetailsContentInnerComponent implements OnInit {
   loc : any;
   exam_id : string;
   exam_detail : any = [];
-
+  active: boolean= false;
+  view_button_hide: boolean= true;
   constructor(private location : Location,
               private examService : ExamsService,
               private loaderservice : LoaderService) { }
@@ -30,6 +31,11 @@ export class ExploreExamDetailsContentInnerComponent implements OnInit {
 
     })
 
+  }
+
+  viewmore_details(){
+    this.active= true;
+    this.view_button_hide= false;
   }
 
 }
