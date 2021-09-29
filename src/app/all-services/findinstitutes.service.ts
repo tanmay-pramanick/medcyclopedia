@@ -46,6 +46,10 @@ export class FindinstitutesService {
     return this.http.post(`${environment.apiUrl}/like-institute`, {user_id : user_id, institute_id : institute_id})
   }
 
+  interestInstitute(user_id, institute_id){
+    return this.http.post(`${environment.apiUrl}/interest-institute`, {user_id : user_id, institute_id : institute_id})
+  }
+
   getInstituteGallery(institute_id){
     return this.http.get(`${environment.apiUrl}/institute-photos/`+institute_id);
   }

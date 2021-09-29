@@ -64,7 +64,6 @@ export class HeaderComponent implements OnInit {
         }
         else {
           console.log("empty user", user);
-          this.router.navigate(['/signin']);
         }
 
         if (user) {

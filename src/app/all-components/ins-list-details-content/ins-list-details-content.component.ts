@@ -98,6 +98,26 @@ export class InsListDetailsContentComponent implements OnInit {
     
   }
 
+  interestInstitute(){
+    this.util.show("Loading...");
+    this.signinservice.getCurrentUser().subscribe(data => {
+      console.log(data);
+      this.token_detail = data;
+
+      this.profileservice.getProfileData(this.token_detail.access_token).subscribe(res =>{
+        this.user_detail = res;
+        this.user_id = this.user_detail.id;
+
+        this.findinstitute.interestInstitute(this.user_id, this.institute_id).subscribe(data =>{
+          this.util.hide();
+          this.router.navigate(['/institute-confirmation'])
+        })
+      })
+
+    })
+  }
+
+
   getPhotos(){
     this.router.navigate(['/photo-gallery'], {state :{id:this.institute_id }});
   }
