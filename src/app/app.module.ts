@@ -16,6 +16,8 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+
 import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, BannerComponent, FooterComponent],
@@ -25,6 +27,7 @@ import { DatePipe } from '@angular/common';
   ],
   providers: [
     FileTransfer,  
+    LocalNotifications,
     HTTP,
     File,
     FileOpener,

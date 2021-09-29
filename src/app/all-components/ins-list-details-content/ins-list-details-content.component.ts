@@ -12,6 +12,7 @@ import { File, IWriteOptions } from '@ionic-native/file/ngx';
 import { FileTransfer,FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { ToastController } from '@ionic/angular';
 import { UtilService } from 'src/app/services/util.service';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: 'app-ins-list-details-content',
@@ -32,7 +33,7 @@ export class InsListDetailsContentComponent implements OnInit {
   like_counter: any;
   active: boolean= false;
   view_button_hide: boolean= true;
-
+  clickSub: any;
   constructor(private location: Location,
     private findinstitute: FindinstitutesService,
     private loaderservice: LoaderService,
@@ -43,6 +44,7 @@ export class InsListDetailsContentComponent implements OnInit {
     private nativeHTTP: HTTP, 
     private file: File,
     public util: UtilService,
+    private localNotifications: LocalNotifications,
     private fileOpen: FileOpener,
     private transfer : FileTransfer) {
     this.uploadsUrl = environment.uploadsUrl;
@@ -153,22 +155,21 @@ export class InsListDetailsContentComponent implements OnInit {
     console.log(URL, filePath);
     this.nativeHTTP.downloadFile(URL, {}, {}, filePath).then(response => {
        // prints 200
-       this.util.hide()
-       this.displayToast();
-       const entryUrl = response.toURL();
-        console.log('entryUrl', entryUrl);
-        this.fileOpen.open(entryUrl, 'application/pdf');
-       console.log('success block...', JSON.stringify(response));
+      this.util.hide()
+      this.displayToast();
+      const entryUrl = response.toURL();
+      this.displayNotification(entryUrl);
+      console.log('success block...', JSON.stringify(response));
     }).catch(err => {
         // prints 403
         this.util.hide()
         this.displayToastFailure();
-        console.log('error block ... ', err.status);
-        // prints Permission denied
-        console.log('error block ... ', err.error);
     })
   }
 
+  unsub() {
+    this.clickSub.unsubscribe();
+  }
 
   displayToast() {
     this.toastController.create({
@@ -213,4 +214,16 @@ displayToastFailure() {
   });
 }
 
+  displayNotification(entryUrl){
+  this.clickSub = this.localNotifications.on('click').subscribe(data => {
+     this.fileOpen.open(entryUrl, 'application/pdf');
+      this.unsub();
+  });
+  this.localNotifications.schedule({
+    id: 1,
+    text: 'Brochure has been downloaded successfully',
+    sound: 'file://sound.mp3',
+    data: { secret: 'key' }
+  });
+  }
 }

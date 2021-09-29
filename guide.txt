@@ -1,1 +1,8 @@
+error : 
 File Provider : public class FileProvider extends androidx.core.content.FileProvider
+
+Error : 
+Can't resolve symbol android.support.v4.util
+
+Solution : npm i jetifier
+	   npx jetify
