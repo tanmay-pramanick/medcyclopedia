@@ -9,7 +9,7 @@
         <ion-col size="8">
           <div class="radio_back d-flex" (change)="getManagement($event.target.value)">
             <div class="port d-flex align-center">
-              <input type="radio" name="radio" id="govt" value="Government">
+              <input type="radio" name="radio" id="govt" value="Government" checked="checked" >
               <label for="govt">
                 <span></span>
                 Govt.
@@ -30,14 +30,9 @@
           <p>State</p> 
         </ion-col>
         <ion-col size="8">
-          <ion-select placeholder="" [(ngModel)]="state_id">
-            <ion-select value="Andaman & Nicobar Island" okText="Okay" cancelText="Dismiss">
-              <ion-select-option *ngFor="let state of allStates" name="state_id" value="{{ state.id }}" >{{ state.state_name }}</ion-select-option>
-              <!-- <ion-select-option value="Assam">Assam</ion-select-option>
-              <ion-select-option value="Arunachal Pradesh">Arunachal Pradesh</ion-select-option>
-              <ion-select-option value="Bihar">Bihar</ion-select-option> -->
+            <ion-select okText="Okay" cancelText="Dismiss" [(ngModel)]="state_id">
+              <ion-select-option *ngFor="let state of allStates" name="state_id" value="{{ state.id }}">{{ state.state_name }}</ion-select-option>
             </ion-select>
-          </ion-select>
         </ion-col>
       </ion-row>
       <ion-row>

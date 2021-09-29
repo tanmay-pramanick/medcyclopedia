@@ -30,6 +30,7 @@ export class InstitutionsFormContentComponent implements OnInit {
       console.log(res);
       this.loaderservice.hideLoading();
       this.allStates = res;
+      this.state_id = "2"
     })
   }
 
@@ -38,7 +39,11 @@ export class InstitutionsFormContentComponent implements OnInit {
     this.ownership_type = ownership;
   }
 
+  test(params){
+    console.log(params);
+    
 
+  }
   findInstitutes(){
 
     console.log(this.state_id);

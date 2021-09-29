@@ -1,6 +1,6 @@
-<div class="notification_back" *ngFor="let exam of allExams">
+<div class="notification_back" >
   <h2>Explore Exams</h2>
-  <div class="card">
+  <div class="card" *ngFor="let exam of allExams">
     <p class="orange_text">{{ exam.title }}</p>
     <div class="section">
       <h6>Description</h6>
